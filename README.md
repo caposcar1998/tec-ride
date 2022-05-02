@@ -13,3 +13,9 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+# Running the frontend
+
+```shell
+npm run dev
+```
