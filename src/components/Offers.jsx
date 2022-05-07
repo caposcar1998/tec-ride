@@ -1,6 +1,12 @@
+import { useState } from "react";
+import CreateRide from "./CreateRide";
 import RideOffered from "./RideOffered"
 
 const Offers = () => {
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     const testUsers = [
         {date:"May 3rd, 10:10:00 AM", from:"Insurgentes Sur 4411", to:"Bicholandia", by:"Oscar",bids:10},
@@ -11,10 +17,16 @@ const Offers = () => {
 
     function makeOffer(){
         console.log("Hacer oferta")
+        handleShow()
     }
 
     return(
     <div className="container">
+        <CreateRide
+        show={show}
+        handleShow={handleShow}
+        handleClose={handleClose}
+        />
         <ul className="list-group">
             {
                 testUsers.map((user, index) => {
