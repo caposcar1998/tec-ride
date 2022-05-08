@@ -1,6 +1,23 @@
-const RideOffered = ({date, from, to, by, makeOffer, bids}) => {
+import { useState } from "react";
+import travelsMock from "../mocks/travelsMock.json"
+
+const RideOffered = ({id, date, from, to, by, bids, cost}) => {
 
 
+    const [rerender, setRerender] = useState(false);
+
+    function makeOffer(){
+  
+        travelsMock.map((travel) => {
+            if (travel.id === id){
+                travel.bids.push({"address":"0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12", "amount":20})
+            }
+            
+        })
+        alert("Bid placed")
+        setRerender(!rerender);
+
+    }
 
     return(
         <li className="list-group-item">
@@ -25,7 +42,7 @@ const RideOffered = ({date, from, to, by, makeOffer, bids}) => {
                         <div className="container">
                                 <div className="row">
                                     <div className="col-12">
-                                        <h5 className="text-danger">Bids: {bids} </h5>
+                                        <h5 className="text-danger">Cost: {cost} </h5>
                                     </div>
                                     <div className="col-12"/>
                                     <div className="col-12">
@@ -44,7 +61,13 @@ const RideOffered = ({date, from, to, by, makeOffer, bids}) => {
                                 </div>
                                 <div className="col-12">
                                     <ul className="list-group">
-                                                                      
+                                        {
+                                            bids.map((bid,index) =>{
+                                                return(
+                                                    <li>Address: {bid.address}</li>
+                                                )
+                                            })
+                                        }                       
                                     </ul>
 
                                 </div>

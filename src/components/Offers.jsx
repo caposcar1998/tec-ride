@@ -4,22 +4,19 @@ import travelsMock from "../mocks/travelsMock.json"
 const Offers = () => {
 
 
-    function makeOffer(){
-        console.log(travelsMocks)
-    }
-
     return(
     <div className="container">
         <ul className="list-group">
             {
                 travelsMock.map((travel, index) => {
                     return <RideOffered
-                    date= {travel.date}
+                    id={travel.id}
+                    date= {travel.date +" " +travel.hour}
                     from= {travel.from}
                     to= {travel.to}
                     by= {travel.driver}
-                    makeOffer= {makeOffer}
-                    bids= {[]}
+                    cost={travel.costRide}
+                    bids= {travel.bids}
    
                 />
                 })

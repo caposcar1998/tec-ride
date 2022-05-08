@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import travelsMock from '../mocks/travelsMock.json'
+import { v4 as uuidv4 } from 'uuid';
+
 const CreateRide = () => {
 
 
@@ -15,12 +17,13 @@ const CreateRide = () => {
     function createNewRide(){
         setTotal(Number(price) + Number(reward))
         travelsMock.push({
+            "id":uuidv4(),
             "date":date,
             "limit": Number(people),
             "hour":hour,
             "from":origin,
             "to": end,
-            "driver": "Oscar",
+            "driver": "0x2Da50A15deD2Da65cac23B1900B925aB9224170F",
             "rider": "",
             "costRide": Number(price),
             "gas": Number(reward),
