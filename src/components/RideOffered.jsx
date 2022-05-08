@@ -1,5 +1,3 @@
-
-
 const RideOffered = ({date, from, to, by, makeOffer, bids}) => {
 
 
