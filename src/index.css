@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.containerHome h1, h2{
+  text-align: center;
+}
+
+.containerHome .infoP{
+  padding-left: 16px;
+  padding-top: 10px;
+  padding-right: 16px;
+  border-style: solid;
+  margin-left: 15px;
+  margin-right: 20px;
+  font-size: 18px;
+}
+.containerHome img{
+  margin-left: 30px;
+  width: 300px;
+}
+.containerHome .contentHome1{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.containerHome h2{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.containerHome .teamMembers{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+
+.containerHome .teamMembers .member{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerHome .teamMembers h3{
+  font-size: 18px;
+}
