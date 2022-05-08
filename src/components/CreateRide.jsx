@@ -1,8 +1,39 @@
-import {Button, Modal} from 'react-bootstrap';
-
+import { useState } from 'react';
+import travelsMock from '../mocks/travelsMock.json'
 const CreateRide = () => {
+
+
+    const [date, setDate] = useState()
+    const [hour, setHour] = useState()
+    const [people, setPeople] = useState()
+    const [price, setPrice] = useState()
+    const [reward, setReward] = useState()
+    const [origin, setOrigin] = useState()
+    const [end, setEnd] = useState()
+    const [total, setTotal] = useState()
+
+    function createNewRide(){
+        setTotal(Number(price) + Number(reward))
+        travelsMock.push({
+            "date":date,
+            "limit": Number(people),
+            "hour":hour,
+            "from":origin,
+            "to": end,
+            "driver": "Oscar",
+            "rider": "",
+            "costRide": Number(price),
+            "gas": Number(reward),
+            "total": total,
+            "bids": []
+
+        })
+        alert("Creado con exito!")
+    }
+
     return(
         <div className='container'>
+            
             <div className='row'>
                 <div className='col-12 d-flex justify-content-center'>
                     <h1>Offer a ride to users</h1>
@@ -19,7 +50,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                        <input class="form-control input-sm" type="date"/>    
+                                        <input onChange={event => setDate(event.target.value)} class="form-control input-sm" type="date"/>    
                                         </div>
                                     </div>
                                 </div>                                 
@@ -33,7 +64,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                        <input class="form-control input-sm" type="time"/>   
+                                        <input onChange={event => setHour(event.target.value)} class="form-control input-sm" type="time"/>   
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +79,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                        <input class="form-control input-sm" type="number"/>   
+                                        <input onChange={event => setPeople(event.target.value)} class="form-control input-sm" type="number"/>   
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +93,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                        <input class="form-control input-sm" type="number"/>   
+                                        <input onChange={event => setPrice(event.target.value)} class="form-control input-sm" type="number"/>   
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +109,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                        <input class="form-control input-sm" type="number"/>   
+                                        <input onChange={event => setReward(event.target.value)} class="form-control input-sm" type="number"/>   
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +123,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                        100   
+                                        {Number(price)+Number(reward)}   
                                         </div>
                                     </div>
                                 </div>                                        
@@ -106,7 +137,7 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                            <input class="form-control input-sm" type="text"/>
+                                            <input onChange={event => setOrigin(event.target.value)} class="form-control input-sm" type="text"/>
                                         </div>
                                     </div>
                                 </div>                                        
@@ -121,14 +152,14 @@ const CreateRide = () => {
                                     </div>
                                     <div className='row'>
                                         <div className='col-12'>
-                                            <input class="form-control input-sm" type="text"/>
+                                            <input onChange={event => setEnd(event.target.value)} class="form-control input-sm" type="text"/>
                                         </div>
                                     </div>
                                 </div>  
                                 
                             </div>
                             <div className='d-flex justify-content-center container'>
-                                    <button className='btn btn-success'>Create</button>
+                                    <button onClick={createNewRide} className='btn btn-success'>Create</button>
                                 </div>  
                                 
                             
