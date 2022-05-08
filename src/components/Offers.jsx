@@ -1,42 +1,25 @@
-import { useState } from "react";
-import CreateRide from "./CreateRide";
 import RideOffered from "./RideOffered"
+import travelsMock from "../mocks/travelsMock.json"
 
 const Offers = () => {
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const testUsers = [
-        {date:"May 3rd, 10:10:00 AM", from:"Insurgentes Sur 4411", to:"Bicholandia", by:"Oscar",bids:10},
-        {date:"May 3rd, 10:10:00 AM", from:"Insurgentes Sur 4411", to:"Bicholandia", by:"Oscar",bids:10},
-        {date:"May 3rd, 10:10:00 AM", from:"Insurgentes Sur 4411", to:"Bicholandia", by:"Oscar",bids:10},
-        {date:"May 3rd, 10:10:00 AM", from:"Insurgentes Sur 4411", to:"Bicholandia", by:"Oscar",bids:10}
-    ]
 
     function makeOffer(){
-        console.log("Hacer oferta")
-        handleShow()
+        console.log(travelsMocks)
     }
 
     return(
     <div className="container">
-        <CreateRide
-        show={show}
-        handleShow={handleShow}
-        handleClose={handleClose}
-        />
         <ul className="list-group">
             {
-                testUsers.map((user, index) => {
+                travelsMock.map((travel, index) => {
                     return <RideOffered
-                    date= {user.date}
-                    from= {user.from}
-                    to= {user.to}
-                    by= {user.by}
+                    date= {travel.date}
+                    from= {travel.from}
+                    to= {travel.to}
+                    by= {travel.driver}
                     makeOffer= {makeOffer}
-                    bids= {user.bids}
+                    bids= {[]}
    
                 />
                 })

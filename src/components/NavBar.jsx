@@ -23,9 +23,9 @@ const NavBar = () => {
                     Travels
                 </button>
             </Link>
-            <Link to="/make-offer">
+            <Link to="/offer-ride">
                 <button className="btn">
-                    Make offers
+                    Offer ride
                 </button>
             </Link>
 
