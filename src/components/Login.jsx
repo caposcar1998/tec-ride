@@ -14,24 +14,24 @@ function Login(){
     }
 
     return(
-        <div className="containerLogin">
-            <h1>Login</h1>
-            <div className="login-wrapper">
-                <form>
+        <div className="mx-4 mt-5 " id="containerLogin">
+            <h1 className="text-center mb-3" >Login</h1>
+            <div className="border border-3 border-dark">
+                <form className="ml-2 mr-3 mt-3 d-flex flex-column justify-content-center align-items-center mb-2 mt-4">
                     <label>
-                        <p>Username</p>
-                        <input onChange={e => setUsername(e.target.value)} type="text" />
+                        <p className="text-left d-inline-flex mb-2 mt-4">Username</p>
+                        <input onChange={e => setUsername(e.target.value)} type="text" className="form-control mt-2"/>
                     </label>
                     <label>
-                        <p>Password</p>
-                        <input type="password" />
+                        <p className="text-left d-inline-flex mb-2 mt-4">Password</p>
+                        <input type="password" className="form-control"/>
                     </label>
                     <div>
-                        <button onClick={login} type="submit">Submit</button>
+                        <button onClick={login} type="submit" className="btn btn-success mt-4">Login</button>
                     </div>
                 </form>
-                <p>
-                    Doesn't have an account? <Link to="/signup"><a className="btn">Sign Up</a></Link>
+                <p className="d-flex justify-content-center align-items-center mt-2">
+                    Doesn't have an account? <Link to="/signup"><a className="btn text-primary">Sign Up</a></Link>
                 </p>
             </div>
         </div>
