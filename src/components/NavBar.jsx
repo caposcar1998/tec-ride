@@ -14,21 +14,28 @@ const NavBar = () => {
                     Home
                 </button>
             </Link>
-            <Link to="/offers">
-                <button className="btn">
-                    Offers
-                </button>
-            </Link>
-            <Link to="/travels">
-                <button className="btn">
-                    Travels
-                </button>
-            </Link>
-            <Link to="/offer-ride">
-                <button className="btn">
-                    Offer ride
-                </button>
-            </Link>
+
+            {localStorage.getItem('type') === 'rider' ?
+                <>
+                <Link to="/offers">
+                    <button className="btn">
+                        Offers
+                    </button>
+                </Link>
+                <Link to="/travels">
+                    <button className="btn">
+                        Travels
+                    </button>
+                </Link>   
+                </>      
+             :
+                <Link to="/offer-ride">
+                    <button className="btn">
+                        Offer ride
+                    </button>
+                </Link>   
+             }
+
             <button className="btn btn-danger" onClick={logOut}>Logout</button>
 
 
