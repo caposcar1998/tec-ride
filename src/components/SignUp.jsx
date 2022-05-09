@@ -1,3 +1,4 @@
+import { Dropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 function SignUp(){
@@ -18,6 +19,10 @@ function SignUp(){
                         <p>Password</p>
                         <input type="password" />
                     </label>
+                    <select>
+                        <option value="driver">Driver</option>
+                        <option value="passenger">Passenger</option>
+                    </select>
                     <div>
                         <Link to="/login"><button type="submit">Sign Up</button></Link>
                     </div>
