@@ -9,7 +9,7 @@ function Login(){
 
     function login(){
         localStorage.setItem('user', username)
-        localStorage.setItem('type', "rider")
+        localStorage.setItem('type', "driver")
         location.reload()
     }
 

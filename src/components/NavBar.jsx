@@ -29,11 +29,18 @@ const NavBar = () => {
                 </Link>   
                 </>      
              :
-                <Link to="/offer-ride">
+                <>
+                    <Link to="/offer-ride">
+                        <button className="btn">
+                            Offer ride
+                        </button>
+                    </Link>   
+                    <Link to="/my-offers">
                     <button className="btn">
-                        Offer ride
+                        My rides
                     </button>
-                </Link>   
+                    </Link> 
+                </> 
              }
 
             <button className="btn btn-danger" onClick={logOut}>Logout</button>
