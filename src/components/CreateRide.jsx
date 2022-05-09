@@ -13,6 +13,7 @@ const CreateRide = () => {
     const [origin, setOrigin] = useState()
     const [end, setEnd] = useState()
     const [total, setTotal] = useState()
+    const [hoursActive, setHoursActive] = useState()
 
     function createNewRide(){
         setTotal(Number(price) + Number(reward))
@@ -28,7 +29,8 @@ const CreateRide = () => {
             "costRide": Number(price),
             "gas": Number(reward),
             "total": total,
-            "bids": []
+            "bids": [],
+            "hoursActive":hoursActive
 
         })
         alert("Creado con exito!")
@@ -131,6 +133,20 @@ const CreateRide = () => {
                                     </div>
                                 </div>                                        
                             </div>
+                            <div className='col-4 d-flex justify-content-center'>
+                            <div className='container'>
+                                    <div className='row'>
+                                        <div className='col-12'>
+                                        Hours active
+                                        </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-12'>
+                                        <input type="number" onChange={event => setHoursActive(event.target.value)} class="form-control input-sm"/>
+                                        </div>
+                                    </div>
+                                </div>                                        
+                            </div>
                             <div className='col-12 '>
                             <div className='container'>
                                     <div className='row'>
@@ -146,6 +162,7 @@ const CreateRide = () => {
                                 </div>                                        
 
                             </div>
+
                             <div className='col-12 '>
                             <div className='container'>
                                     <div className='row'>

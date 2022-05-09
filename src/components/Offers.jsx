@@ -17,6 +17,7 @@ const Offers = () => {
                     by= {travel.driver}
                     cost={travel.costRide}
                     bids= {travel.bids}
+                    activeTime = {travel.hoursActive}
    
                 />
                 })
