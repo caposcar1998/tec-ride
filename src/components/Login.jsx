@@ -1,6 +1,17 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 function Login(){
+
+
+    const [username, setUsername] = useState()
+    const [password, setPassword] = useState()
+
+    function login(){
+        localStorage.setItem('user', username)
+        location.reload()
+    }
+
     return(
         <div className="containerLogin">
             <h1>Login</h1>
@@ -8,14 +19,14 @@ function Login(){
                 <form>
                     <label>
                         <p>Username</p>
-                        <input type="text" />
+                        <input onChange={e => setUsername(e.target.value)} type="text" />
                     </label>
                     <label>
                         <p>Password</p>
                         <input type="password" />
                     </label>
                     <div>
-                        <Link to="/offers"><button type="submit">Submit</button></Link>
+                        <button onClick={login} type="submit">Submit</button>
                     </div>
                 </form>
                 <p>

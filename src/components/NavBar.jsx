@@ -2,8 +2,9 @@ import { Link } from "react-router-dom"
 
 const NavBar = () => {
 
-    function sendToLocation(){
-
+    function logOut(){
+        localStorage.removeItem('user')
+        location.reload()
     }
 
     return(
@@ -28,11 +29,7 @@ const NavBar = () => {
                     Offer ride
                 </button>
             </Link>
-            <Link to="/login">
-                <button className="btn">
-                    Login or Sign Up
-                </button>
-            </Link>
+            <button className="btn btn-danger" onClick={logOut}>Logout</button>
 
 
         </nav>
