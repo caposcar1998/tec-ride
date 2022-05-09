@@ -24,7 +24,7 @@ const CreateRide = () => {
             "hour":hour,
             "from":origin,
             "to": end,
-            "driver": "0x2Da50A15deD2Da65cac23B1900B925aB9224170F",
+            "driver": localStorage.getItem('user'),
             "rider": "",
             "costRide": Number(price),
             "gas": Number(reward),

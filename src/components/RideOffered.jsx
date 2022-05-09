@@ -11,7 +11,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
   
         travelsMock.map((travel) => {
             if (travel.id === id){
-                travel.bids.push({"address":"0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12", "amount":20})
+                travel.bids.push({"address":localStorage.getItem('user'), "amount":20})
             }
             
         })
