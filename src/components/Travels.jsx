@@ -8,14 +8,16 @@ const Travels = () => {
         <ul className="list-group">
             {
                 travelsMock.map((travel, index) => {
-                    return <UserTravel
-                    date= {travel.date}
-                    from= {travel.from}
-                    to= {travel.to}
-                    by= {travel.driver}
-                    costRide= {travel.costRide}
-                    id = {travel.id}
-                />
+                    return travel.rider === localStorage.getItem('user') ?
+                        <UserTravel
+                        date= {travel.date}
+                        from= {travel.from}
+                        to= {travel.to}
+                        by= {travel.driver}
+                        costRide= {travel.costRide}
+                        id = {travel.id}
+                    />
+                : null
                 })
             }
 
