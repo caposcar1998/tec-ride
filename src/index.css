@@ -12,7 +12,11 @@ code {
     monospace;
 }
 
-.containerHome h1, h2{
+/*
+      -----     Start of Home     -----   
+*/
+
+.containerHome h1, .containerHome h2{
   text-align: center;
 }
 
@@ -56,3 +60,132 @@ code {
 .containerHome .teamMembers h3{
   font-size: 18px;
 }
+
+/*
+      -----     End of Home     -----   
+*/
+
+/*
+      -----     Start of Login     -----   
+*/
+
+.containerLogin, .login-wrapper{
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.login-wrapper{
+  border-style: solid;
+}
+
+.containerLogin h1{
+  text-align: center;
+}
+
+.containerLogin .login-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.containerLogin .login-wrapper form p{
+  margin-top: 20px;
+}
+
+.containerLogin .login-wrapper button{
+  margin-top: 30px;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  transition-duration: 0.4s;
+  background-color: white;
+  border: 2px;
+  border-style: solid;
+  border-color: #4CAF50;
+}
+
+.containerLogin .login-wrapper button:hover{
+  background-color: #4CAF50;
+  color: white;
+}
+
+.containerLogin .login-wrapper p{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.containerLogin .login-wrapper a{
+  color: blue;
+}
+
+/*
+      -----     End of Login     -----   
+*/
+
+/*
+      -----     Start of SignUp     -----   
+*/
+
+.containerSignUp, .signUp-wrapper{
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.signUp-wrapper{
+  border-style: solid;
+}
+
+
+.containerSignUp h1{
+  text-align: center;
+}
+
+.containerSignUp .signUp-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+}
+
+.containerSignUp .signUp-wrapper form p{
+  margin-top: 20px;
+}
+
+
+.containerSignUp .signUp-wrapper button{
+  margin-top: 30px;
+  border-radius: 5px;
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 6px;
+  transition-duration: 0.4s;
+  background-color: white;
+  border: 2px;
+  border-style: solid;
+  border-color: #008CBA;
+}
+
+.containerSignUp .signUp-wrapper button:hover{
+  background-color: #008CBA;
+  color: white;
+}
+
+/*
+      -----     End of SignUp     -----   
+*/
