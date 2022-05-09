@@ -5,6 +5,9 @@ import NavBar from './components/NavBar'
 import Offers from './components/Offers';
 import Travels from './components/Travels';
 import CreateRide from './components/CreateRide';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+
 
 function App() {
 
@@ -16,6 +19,8 @@ function App() {
         <Route path="/offers" element={<Offers/>}/>
         <Route path="/travels" element={<Travels/>}/>
         <Route path='/offer-ride' element={<CreateRide/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
       </Routes>
       
     </div>
