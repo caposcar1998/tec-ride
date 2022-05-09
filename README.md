@@ -8,8 +8,8 @@ Application that will give the users of the blockchain secure and private rides 
 
 # How to install
 
-1. `npm install`
-2. `npm run dev`
+1. ```npm install```
+2. ```npm run dev```
 3. Open [http:localhost:3000](http:localhost:3000)
 
 
