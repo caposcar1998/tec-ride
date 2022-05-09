@@ -1,4 +1,22 @@
-const UserTravel = ({date, from, to, by, cancelRide, costRide}) => {
+import { useState } from 'react';
+import travelsMock from '../mocks/travelsMock.json'
+
+const UserTravel = ({date, from, to, by, costRide, id}) => {
+
+    const [rerender, setRerender] = useState(false);
+
+    function cancelRide(){
+        let i = 0
+        travelsMock.map((travel) => {
+            i = i +1
+            if (travel.id === id){
+                console.log(i)
+                travelsMock.splice(id,1)
+            }})
+        alert("viaje cancelado")
+        setRerender(!rerender);
+    }
+
     return(
         <li className="list-group-item">
             <div className="container">
