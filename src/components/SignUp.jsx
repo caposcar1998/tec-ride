@@ -1,7 +1,20 @@
+import { useState } from "react"
 import { Dropdown } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
+
 function SignUp(){
+
+
+    const [typeUser, setTypeUser] = useState()
+
+    function signUp(){
+        localStorage.setItem('user', username)
+        localStorage.setItem('type', typeUser)
+        location.reload()
+
+    }
+
     return(
         <div className="containerSignUp">
             <h1>Sign Up</h1>
@@ -19,12 +32,12 @@ function SignUp(){
                         <p>Password</p>
                         <input type="password" />
                     </label>
-                    <select>
+                    <select onChange={e => setTypeUser(e.target.value)}>
                         <option value="driver">Driver</option>
                         <option value="passenger">Passenger</option>
                     </select>
                     <div>
-                        <Link to="/login"><button type="submit">Sign Up</button></Link>
+                        <button onClick={signUp} type="submit">Sign Up</button>
                     </div>
                 </form>
             </div>
