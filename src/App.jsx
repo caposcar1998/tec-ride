@@ -22,7 +22,7 @@ function App() {
         <Route path='/offer-ride' element={<CreateRide/>}/>
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        <Route path='//my-offers' element={<MyRides/>}/>
+        <Route path='/my-offers' element={<MyRides/>}/>
       </Routes>
       
     </div>
