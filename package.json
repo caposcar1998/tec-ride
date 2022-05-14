@@ -15,6 +15,7 @@
     "react-countdown": "^2.3.2",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
+    "truffle": "^5.5.14",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
