@@ -46,9 +46,12 @@ npm install -g truffle
 1. Download [Metamask](https://metamask.io/download/) and add the plugin
 2. Create account
 3. The local application will ask you to login access metamask
-4. Access the plugin 
+4. Access the plugin with a ganache user
+5. Create localhost network
 
 ## Testing truffle
+
+0. Start ganache in port 7545
 
 1. Run 
 ```
@@ -56,11 +59,29 @@ truffle console
 ```
 2. On the console run
 ```
-let x = await MetaCoin.deployed
+let x = await MetaCoin.deployed()
 x
 x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12"})
 ```
 
+## Create transactions
+
+1. Make sure your contract is created in build
+
+2. If not run
+```
+truffle migrate
+```
+
+3.  Create config file per contract in src
+
+4. Copy the address and abi obtained from build
+
+5. Use example in tasting file
+
+6. Methods may change:
+    1. send makes the transaction
+    2. call retrieves data
 
 
 
