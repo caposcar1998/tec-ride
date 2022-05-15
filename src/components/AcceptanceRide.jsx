@@ -1,5 +1,6 @@
 import { useState } from "react";
-import travelsMock from "../mocks/travelsMock.json"
+import { CONTRACT_ABI, CONTRACT_ADDRESS } from '../config';
+import Web3 from 'web3';
 import Countdown from 'react-countdown';
 
 const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
@@ -7,9 +8,13 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
 
     const [rerender, setRerender] = useState(false);
 
-    function acceptUser(){
-        alert('user accepted')
-    }
+
+    async function acceptUser(user, amount){
+        const web3 = new Web3('http://localhost:7545');
+        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+        const met = await sendMoney.methods.sendCoin("0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12",amount).send({from:user})
+        console.log(met)
+      }
 
     return(
         <li className="list-group-item">
@@ -58,7 +63,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                                 return(
                                                     <div className="container inline-block ">
                                                         <li>Address: {bid.address}</li>
-                                                        <button className="btn btn-success" onClick={acceptUser}>Accept</button>
+                                                        <button className="btn btn-success" onClick={() => acceptUser(bid.address, bid.amount)}>Accept</button>
                                                     </div>
                                                 )
                                             })

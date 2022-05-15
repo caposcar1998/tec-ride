@@ -12,7 +12,7 @@ function Testing() {
   async function createPayment(){
     const web3 = new Web3('http://localhost:7545');
     const sendMoney = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-    const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",50).send({from:"0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12"})
+    const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",10000000000000).send({from:"0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12"})
     console.log(met)
   }
 

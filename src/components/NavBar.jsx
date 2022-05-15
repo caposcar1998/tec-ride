@@ -2,11 +2,6 @@ import { Link } from "react-router-dom"
 
 const NavBar = () => {
 
-    function logOut(){
-        localStorage.removeItem('user')
-        location.reload()
-    }
-
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <Link to="/">
@@ -43,7 +38,6 @@ const NavBar = () => {
                 </> 
              }
 
-            <button className="btn btn-danger" onClick={logOut}>Logout</button>
 
 
         </nav>
