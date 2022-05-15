@@ -8,7 +8,7 @@ import CreateRide from './components/CreateRide';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import MyRides from './components/MyRides';
-
+import Testing from './components/Testing';
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/my-offers' element={<MyRides/>}/>
+        <Route path='/testing' element={<Testing/>}/>
       </Routes>
       
     </div>

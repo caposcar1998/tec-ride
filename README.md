@@ -25,6 +25,42 @@ The app is configured to le you in with the login and assign you as a rider, so 
 
 Go to Login.jsx and change line 12 to localStorage.setItem('type', "driver")
 
+# Contracts
+
+Install globally
+```
+npm install -g truffle
+```
+
+## Adding contract
+
+1. Create contrat in contracts folder
+2. Add the contract to migrations
+3. Run
+```
+    truffle migrate --reset
+```
+
+## Connect the user to the blockchain
+
+1. Download [Metamask](https://metamask.io/download/) and add the plugin
+2. Create account
+3. The local application will ask you to login access metamask
+4. Access the plugin 
+
+## Testing truffle
+
+1. Run 
+```
+truffle console
+```
+2. On the console run
+```
+let x = await MetaCoin.deployed
+x
+x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12"})
+```
+
 
 
 
