@@ -9,11 +9,29 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import MyRides from './components/MyRides';
 import Testing from './components/Testing';
+import { useEffect, useState } from 'react';
+import Web3 from 'web3';
+import Register from './components/Register';
 
 function App() {
 
+  const [account, setAccount] = useState();
+
+  useEffect(() => {
+    async function load() {
+      const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
+      const accounts = await web3.eth.requestAccounts();
+      
+      setAccount(accounts[0]);
+    }
+    
+    load();
+   }, []);
+
   return (
     <div className="App">
+      {account ?
+      <>
       <NavBar/>
       <Routes>
         <Route path="/" element={<Home/>}/>
@@ -25,6 +43,11 @@ function App() {
         <Route path='/my-offers' element={<MyRides/>}/>
         <Route path='/testing' element={<Testing/>}/>
       </Routes>
+      </>    
+    :
+    <Register/>
+    }
+
       
     </div>
   )
