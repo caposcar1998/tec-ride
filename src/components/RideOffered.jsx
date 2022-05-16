@@ -1,26 +1,29 @@
 import { useState } from "react";
 import travelsMock from "../mocks/travelsMock.json"
 import Countdown from 'react-countdown';
+import AddOffer from "./AddOffer";
 
 const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
 
 
-    const [rerender, setRerender] = useState(false);
+    
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     function makeOffer(){
   
-        travelsMock.map((travel) => {
-            if (travel.id === id){
-                travel.bids.push({"address":localStorage.getItem('user'), "amount":20})
-            }
-            
-        })
-        alert("Bid placed")
-        setRerender(!rerender);
+
+        handleShow()
+        
 
     }
 
     return(
+        <>
+        <AddOffer show={show} handleShow={handleShow} handleClose={handleClose} id={id}/>
         <li className="list-group-item">
             <div className="container">
                 <div className="row">
@@ -66,7 +69,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                         {
                                             bids.map((bid,index) =>{
                                                 return(
-                                                    <li>Address: {bid.address}</li>
+                                                    <li>Address: {bid.address} - Offered: {bid.amount} eth</li>
                                                 )
                                             })
                                         }                       
@@ -79,6 +82,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                 </div>
             </div>
         </li>
+        </>
     )
 }
 

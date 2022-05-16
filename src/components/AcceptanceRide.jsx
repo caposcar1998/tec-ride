@@ -6,13 +6,12 @@ import Countdown from 'react-countdown';
 const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
 
 
-    const [rerender, setRerender] = useState(false);
 
 
     async function acceptUser(user, amount){
         const web3 = new Web3('http://localhost:7545');
-        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-        const met = await sendMoney.methods.sendCoin("0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12",amount).send({from:user})
+        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, localStorage.getItem('idUser'));
+        const met = await sendMoney.methods.sendCoin(localStorage.getItem('idUser'),amount).send({from:user})
         console.log(met)
       }
 
