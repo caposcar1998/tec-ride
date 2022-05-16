@@ -28,7 +28,7 @@ const MyRides = () => {
                         setRerender = {setRerender}
                         />
                         :
-                        <ClosedRide/>
+                        <ClosedRide bids={travel.bids}/>
                     
                         )
                     })
