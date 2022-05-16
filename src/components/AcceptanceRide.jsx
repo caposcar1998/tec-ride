@@ -1,18 +1,26 @@
-import { useState } from "react";
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from '../config';
 import Web3 from 'web3';
 import Countdown from 'react-countdown';
+import travelsMock from "../mocks/travelsMock.json"
 
-const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
+const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender}) => {
 
 
 
-
-    async function acceptUser(user, amount){
+    async function acceptUser(user, amount, id){
         const web3 = new Web3('http://localhost:7545');
         const sendMoney = new web3.eth.Contract(CONTRACT_ABI, localStorage.getItem('idUser'));
         const met = await sendMoney.methods.sendCoin(localStorage.getItem('idUser'),amount).send({from:user})
         console.log(met)
+        travelsMock.map((travel) => {
+            if (id === travel.id){
+                console.log("entra")
+                travel.open = false
+            }
+            setRerender(!rerender)
+        })
+
+
       }
 
     return(
@@ -38,7 +46,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
                         <div className="container">
                                 <div className="row">
                                     <div className="col-12">
-                                        <h5 className="text-danger">Cost: {cost} </h5>
+                                        <h5 className="text-danger">Original cost: {cost} </h5>
                                     </div>
                                     <div className="col-12"/>
                                     <div className="col-12">
@@ -61,8 +69,8 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                             bids.map((bid,index) =>{
                                                 return(
                                                     <div className="container inline-block ">
-                                                        <li>Address: {bid.address}</li>
-                                                        <button className="btn btn-success" onClick={() => acceptUser(bid.address, bid.amount)}>Accept</button>
+                                                        <li>Address: {bid.address} - Bid: {bid.amount}</li>
+                                                        <button className="btn btn-success" onClick={() => acceptUser(bid.address, bid.amount, id)}>Accept</button>
                                                     </div>
                                                 )
                                             })

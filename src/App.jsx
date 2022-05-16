@@ -24,7 +24,7 @@ function App() {
       
       setAccount(accounts[0]);
       localStorage.setItem('idUser', accounts[0])
-      localStorage.setItem('type','rider')
+      localStorage.setItem('type','driver')
     }
     
     load();
