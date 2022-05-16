@@ -46,7 +46,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                         <div className="container">
                                 <div className="row">
                                     <div className="col-12">
-                                        <h5 className="text-danger">Cost: {cost} </h5>
+                                        <h5 className="text-danger">Original Cost: {cost} </h5>
                                     </div>
                                     <div className="col-12"/>
                                     <div className="col-12">
