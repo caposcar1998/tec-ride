@@ -8,6 +8,10 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
 
 
     async function acceptUser(user, amount){
+
+        //Avisar a usuario que puede pagar al driver
+
+        //Mover a usuario
         const gasPrice = '0x5208' // 21000 Gas Price
         const amountHex = (2 * Math.pow(10,18)).toString(16)
         
@@ -19,7 +23,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
           value: amountHex,
           gas: gasPrice,
         }
-    
+        
         await window.ethereum.request({ method: 'eth_sendTransaction', params: [ tx ]})
 
       }

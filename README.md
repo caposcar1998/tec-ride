@@ -85,3 +85,6 @@ truffle migrate
 
 
 
+## Magic links
+
+[link](https://github.com/blakewood84/metamask-transactions/blob/main/src/App.js)
