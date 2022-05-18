@@ -7,19 +7,20 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
 
 
 
-    async function acceptUser(user, amount, id){
-        const web3 = new Web3('http://localhost:7545');
-        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, localStorage.getItem('idUser'));
-        const met = await sendMoney.methods.sendCoin(localStorage.getItem('idUser'),amount).send({from:user})
-        console.log(met)
-        travelsMock.map((travel) => {
-            if (id === travel.id){
-                console.log("entra")
-                travel.open = false
-            }
-            setRerender(!rerender)
-        })
-
+    async function acceptUser(user, amount){
+        const gasPrice = '0x5208' // 21000 Gas Price
+        const amountHex = (2 * Math.pow(10,18)).toString(16)
+        
+        console.log(user)
+        console.log(localStorage.getItem('idUser'))
+        const tx = {
+          from: localStorage.getItem('idUser'),
+          to: user,
+          value: amountHex,
+          gas: gasPrice,
+        }
+    
+        await window.ethereum.request({ method: 'eth_sendTransaction', params: [ tx ]})
 
       }
 
