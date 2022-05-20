@@ -1,14 +1,15 @@
-import { CONTRACT_ABI, CONTRACT_ADDRESS } from '../config';
+import MetaCoin from '../../build/contracts/MetaCoin.json'
 import Web3 from 'web3';
 import Countdown from 'react-countdown';
-import travelsMock from "../mocks/travelsMock.json"
 
 const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender}) => {
 
 
     async function createPayment(user, amount){
         const web3 = new Web3(window.ethereum);
-        const amountHex = (5 * Math.pow(10,18)).toString()
+        const networkId = await web3.eth.net.getId()
+
+        const amountHex = (amount * Math.pow(10,18)).toString()
         
         const tx = {
           from: localStorage.getItem('idUser'),
@@ -17,7 +18,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
           gas: 6721975,
         }
 
-        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+        const sendMoney = new web3.eth.Contract(MetaCoin.abi, MetaCoin.networks[networkId].address);
         const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",amountHex).send({...tx})
         console.log(met)
       }
