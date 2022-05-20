@@ -11,38 +11,12 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
 
         const amountHex = (amount * Math.pow(10,18)).toString()
         
-        const tx = {
-          from: localStorage.getItem('idUser'),
-          to: user,
-          value: amountHex,
-          gas: 6721975,
-        }
 
         const sendMoney = new web3.eth.Contract(MetaCoin.abi, MetaCoin.networks[networkId].address);
-        const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",amountHex).send({...tx})
+        const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",amountHex).send({from: localStorage.getItem('idUser')})
         console.log(met)
       }
 
-    async function acceptUser(user, amount){
-
-        //Avisar a usuario que puede pagar al driver
-
-        //Mover a usuario
-        const gasPrice = '0x5208' // 21000 Gas Price
-        const amountHex = (2 * Math.pow(10,18)).toString(16)
-        
-        console.log(user)
-        console.log(localStorage.getItem('idUser'))
-        const tx = {
-          from: localStorage.getItem('idUser'),
-          to: user,
-          value: amountHex,
-          gas: gasPrice,
-        }
-        
-        await window.ethereum.request({ method: 'eth_sendTransaction', params: [ tx ]})
-
-      }
 
     return(
         <li className="list-group-item">
