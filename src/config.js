@@ -54,8 +54,8 @@ export const CONTRACT_ABI = [
         "type": "bool"
       }
     ],
-    "payable": false,
-    "stateMutability": "nonpayable",
+    "payable": true,
+    "stateMutability": "payable",
     "type": "function"
   },
   {

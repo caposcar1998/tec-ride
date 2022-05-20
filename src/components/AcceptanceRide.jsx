@@ -6,6 +6,21 @@ import travelsMock from "../mocks/travelsMock.json"
 const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender}) => {
 
 
+    async function createPayment(user, amount){
+        const web3 = new Web3(window.ethereum);
+        const amountHex = (5 * Math.pow(10,18)).toString()
+        
+        const tx = {
+          from: localStorage.getItem('idUser'),
+          to: user,
+          value: amountHex,
+          gas: 6721975,
+        }
+
+        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
+        const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",amountHex).send({...tx})
+        console.log(met)
+      }
 
     async function acceptUser(user, amount){
 
@@ -75,7 +90,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                                                 return(
                                                     <div className="container inline-block ">
                                                         <li>Address: {bid.address} - Bid: {bid.amount}</li>
-                                                        <button className="btn btn-success" onClick={() => acceptUser(bid.address, bid.amount, id)}>Accept</button>
+                                                        <button className="btn btn-success" onClick={() => createPayment(bid.address, bid.amount, id)}>Accept</button>
                                                     </div>
                                                 )
                                             })
