@@ -1,4 +1,5 @@
 import MetaCoin from '../../build/contracts/MetaCoin.json'
+import Rides from '../../build/contracts/Rides.json'
 import Web3 from 'web3';
 import Countdown from 'react-countdown';
 
@@ -10,10 +11,14 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
         const networkId = await web3.eth.net.getId()
 
         const amountHex = (amount * Math.pow(10,18)).toString()
+        const params = {
+            from: localStorage.getItem("idUser"),
+            gas: 61000,
+            value: amountHex
+        };
         
-
-        const sendMoney = new web3.eth.Contract(MetaCoin.abi, MetaCoin.networks[networkId].address);
-        const met = await sendMoney.methods.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923",amountHex).send({from: localStorage.getItem('idUser')})
+        const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+        const met = await sendMoney.methods.sendMoney(user).send({...params})
         console.log(met)
       }
 
