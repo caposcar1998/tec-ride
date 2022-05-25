@@ -10,7 +10,6 @@ const NavBar = () => {
                 </button>
             </Link>
 
-            {localStorage.getItem('type') === 'rider' ?
                 <>
                 <Link to="/offers">
                     <button className="btn">
@@ -23,7 +22,6 @@ const NavBar = () => {
                     </button>
                 </Link>   
                 </>      
-             :
                 <>
                     <Link to="/offer-ride">
                         <button className="btn">
@@ -36,7 +34,7 @@ const NavBar = () => {
                     </button>
                     </Link> 
                 </> 
-             }
+             
 
 
 

@@ -11,17 +11,13 @@ contract Rides {
 
         address[16] public rides;
 
-    	function payRide(uint rideId) public returns (uint) {
-		require(rideId >= 0 && rideId <= 15);
-        //require (balances[msg.sender] < amount);
-		rides[rideId] = msg.sender;
-	}
 
     function getRides() public view returns (address[16] memory) {
         return rides;
     }
 
-        function sendMoney(address payable _receiver) public payable {
+        function payRide(address payable _receiver, uint rideId) public payable {
         _receiver.transfer(msg.value);
+        rides[rideId] = msg.sender;
     }
 }

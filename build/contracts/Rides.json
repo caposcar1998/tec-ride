@@ -23,27 +23,6 @@
       "type": "function"
     },
     {
-      "constant": false,
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "rideId",
-          "type": "uint256"
-        }
-      ],
-      "name": "payRide",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
       "inputs": [],
       "name": "getRides",
@@ -65,30 +44,35 @@
           "internalType": "address payable",
           "name": "_receiver",
           "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "rideId",
+          "type": "uint256"
         }
       ],
-      "name": "sendMoney",
+      "name": "payRide",
       "outputs": [],
       "payable": true,
       "stateMutability": "payable",
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getRides\",\"outputs\":[{\"internalType\":\"address[16]\",\"name\":\"\",\"type\":\"address[16]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"rideId\",\"type\":\"uint256\"}],\"name\":\"payRide\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"rides\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_receiver\",\"type\":\"address\"}],\"name\":\"sendMoney\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Rides.sol\":\"Rides\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ConvertLib.sol\":{\"keccak256\":\"0xa95479aadd1facea97659bb29b825dbe847d6683880f0edc49b2e02517f3f5dd\",\"urls\":[\"bzz-raw://035feb5b82d2e91cb244970d553c5e2099e4df7c9746d9a4f7bad3059ac4cae3\",\"dweb:/ipfs/QmYoYLHaXxjotgxDvEHYGadJyYtEKtETn8FDwFgzyZL62E\"]},\"project:/contracts/Rides.sol\":{\"keccak256\":\"0xc6706be97e296d905ee92055c4c894efd770505d2e7de92ba05d07ac7f510ca9\",\"urls\":[\"bzz-raw://c1bdf7e460aa5f5a28e259ad366fd6598f253b0dd910200b008795a6e44d8b83\",\"dweb:/ipfs/QmSwSeCnEseNACcVRX2bz4NRq6W5hHFCLhaonoaTu2xQg3\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610369806100206000396000f3fe60806040526004361061003f5760003560e01c8063323b597c14610044578063338ccd7814610097578063422c451f146100db5780635205f1121461012a575b600080fd5b34801561005057600080fd5b506100596101a5565b6040518082601060200280838360005b83811015610084578082015181840152602081019050610069565b5050505090500191505060405180910390f35b6100d9600480360360208110156100ad57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610226565b005b3480156100e757600080fd5b50610114600480360360208110156100fe57600080fd5b8101908080359060200190929190505050610270565b6040518082815260200191505060405180910390f35b34801561013657600080fd5b506101636004803603602081101561014d57600080fd5b81019080803590602001909291905050506102de565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101ad610311565b600060108060200260405190810160405280929190826010801561021c576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116101d2575b5050505050905090565b8073ffffffffffffffffffffffffffffffffffffffff166108fc349081150290604051600060405180830381858888f1935050505015801561026c573d6000803e3d6000fd5b5050565b60008082101580156102835750600f8211155b61028c57600080fd5b336000836010811061029a57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550919050565b600081601081106102eb57fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60405180610200016040528060109060208202803883398082019150509050509056fea265627a7a723158204dded25934a0349d562bf357959f72515646a795faa07df347b3cd7975cafcf764736f6c63430005100032",
-  "deployedBytecode": "0x60806040526004361061003f5760003560e01c8063323b597c14610044578063338ccd7814610097578063422c451f146100db5780635205f1121461012a575b600080fd5b34801561005057600080fd5b506100596101a5565b6040518082601060200280838360005b83811015610084578082015181840152602081019050610069565b5050505090500191505060405180910390f35b6100d9600480360360208110156100ad57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610226565b005b3480156100e757600080fd5b50610114600480360360208110156100fe57600080fd5b8101908080359060200190929190505050610270565b6040518082815260200191505060405180910390f35b34801561013657600080fd5b506101636004803603602081101561014d57600080fd5b81019080803590602001909291905050506102de565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101ad610311565b600060108060200260405190810160405280929190826010801561021c576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190600101908083116101d2575b5050505050905090565b8073ffffffffffffffffffffffffffffffffffffffff166108fc349081150290604051600060405180830381858888f1935050505015801561026c573d6000803e3d6000fd5b5050565b60008082101580156102835750600f8211155b61028c57600080fd5b336000836010811061029a57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550919050565b600081601081106102eb57fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60405180610200016040528060109060208202803883398082019150509050509056fea265627a7a723158204dded25934a0349d562bf357959f72515646a795faa07df347b3cd7975cafcf764736f6c63430005100032",
-  "sourceMap": "333:467:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;333:467:3;;;;;;;",
-  "deployedSourceMap": "333:467:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;584:92;;8:9:-1;5:2;;;30:1;27;20:12;5:2;584:92:3;;;:::i;:::-;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;584:92:3;;;;;;;;;;;;;;;;688:109;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;688:109:3;;;;;;;;;;;;;;;;;;;:::i;:::-;;395:181;;8:9:-1;5:2;;;30:1;27;20:12;5:2;395:181:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;395:181:3;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;361:24;;8:9:-1;5:2;;;30:1;27;20:12;5:2;361:24:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;361:24:3;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;584:92;625:18;;:::i;:::-;663:5;656:12;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;584:92;:::o;688:109::-;760:9;:18;;:29;779:9;760:29;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;760:29:3;688:109;:::o;395:181::-;441:4;470:1;460:6;:11;;:27;;;;;485:2;475:6;:12;;460:27;452:36;;;;;;561:10;545:5;551:6;545:13;;;;;;;;;:26;;;;;;;;;;;;;;;;;;395:181;;;:::o;361:24::-;;;;;;;;;;;;;;;;;;;;;;;:::o;333:467::-;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;333:467:3;;;;:::o",
-  "source": "pragma solidity >=0.4.25 <0.7.0;\r\n\r\nimport \"./ConvertLib.sol\";\r\n\r\n// This is just a simple example of a coin-like contract.\r\n// It is not standards compatible and cannot be expected to talk to other\r\n// coin/token contracts. If you want to create a standards-compliant\r\n// token, see: https://github.com/ConsenSys/Tokens. Cheers!\r\n\r\ncontract Rides {\r\n\r\n        address[16] public rides;\r\n\r\n    \tfunction payRide(uint rideId) public returns (uint) {\r\n\t\trequire(rideId >= 0 && rideId <= 15);\r\n        //require (balances[msg.sender] < amount);\r\n\t\trides[rideId] = msg.sender;\r\n\t}\r\n\r\n    function getRides() public view returns (address[16] memory) {\r\n        return rides;\r\n    }\r\n\r\n        function sendMoney(address payable _receiver) public payable {\r\n        _receiver.transfer(msg.value);\r\n    }\r\n}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"getRides\",\"outputs\":[{\"internalType\":\"address[16]\",\"name\":\"\",\"type\":\"address[16]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_receiver\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"rideId\",\"type\":\"uint256\"}],\"name\":\"payRide\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"rides\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Rides.sol\":\"Rides\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ConvertLib.sol\":{\"keccak256\":\"0xa95479aadd1facea97659bb29b825dbe847d6683880f0edc49b2e02517f3f5dd\",\"urls\":[\"bzz-raw://035feb5b82d2e91cb244970d553c5e2099e4df7c9746d9a4f7bad3059ac4cae3\",\"dweb:/ipfs/QmYoYLHaXxjotgxDvEHYGadJyYtEKtETn8FDwFgzyZL62E\"]},\"project:/contracts/Rides.sol\":{\"keccak256\":\"0x7be48ec03f47fb47a78feb09793010294c551be815540a3bed45f95d693cc837\",\"urls\":[\"bzz-raw://1e4266f3154354801b73358e110f6333d195e9a4a2c6150d3a2afe318077be00\",\"dweb:/ipfs/Qme18oAZTsvsUSNGHCjzsHMQhYyVhdAgsKBTSSrFmNv9FR\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506102f9806100206000396000f3fe6080604052600436106100345760003560e01c8063323b597c146100395780635205f1121461008c578063c752475a14610107575b600080fd5b34801561004557600080fd5b5061004e610155565b6040518082601060200280838360005b8381101561007957808201518184015260208101905061005e565b5050505090500191505060405180910390f35b34801561009857600080fd5b506100c5600480360360208110156100af57600080fd5b81019080803590602001909291905050506101d6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101536004803603604081101561011d57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610209565b005b61015d6102a1565b60006010806020026040519081016040528092919082601080156101cc576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610182575b5050505050905090565b600081601081106101e357fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b8173ffffffffffffffffffffffffffffffffffffffff166108fc349081150290604051600060405180830381858888f1935050505015801561024f573d6000803e3d6000fd5b50336000826010811061025e57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b60405180610200016040528060109060208202803883398082019150509050509056fea265627a7a723158201361499a2e2fe5e045d623c194af78271af3ff3265b7a4d5d84dbe71df29850964736f6c63430005100032",
+  "deployedBytecode": "0x6080604052600436106100345760003560e01c8063323b597c146100395780635205f1121461008c578063c752475a14610107575b600080fd5b34801561004557600080fd5b5061004e610155565b6040518082601060200280838360005b8381101561007957808201518184015260208101905061005e565b5050505090500191505060405180910390f35b34801561009857600080fd5b506100c5600480360360208110156100af57600080fd5b81019080803590602001909291905050506101d6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101536004803603604081101561011d57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610209565b005b61015d6102a1565b60006010806020026040519081016040528092919082601080156101cc576020028201915b8160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019060010190808311610182575b5050505050905090565b600081601081106101e357fe5b016000915054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b8173ffffffffffffffffffffffffffffffffffffffff166108fc349081150290604051600060405180830381858888f1935050505015801561024f573d6000803e3d6000fd5b50336000826010811061025e57fe5b0160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505050565b60405180610200016040528060109060208202803883398082019150509050509056fea265627a7a723158201361499a2e2fe5e045d623c194af78271af3ff3265b7a4d5d84dbe71df29850964736f6c63430005100032",
+  "sourceMap": "333:327:3:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;333:327:3;;;;;;;",
+  "deployedSourceMap": "333:327:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;396:92;;8:9:-1;5:2;;;30:1;27;20:12;5:2;396:92:3;;;:::i;:::-;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;396:92:3;;;;;;;;;;;;;;;;361:24;;8:9:-1;5:2;;;30:1;27;20:12;5:2;361:24:3;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;361:24:3;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;500:157;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;500:157:3;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;396:92;437:18;;:::i;:::-;475:5;468:12;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;396:92;:::o;361:24::-;;;;;;;;;;;;;;;;;;;;;;;:::o;500:157::-;583:9;:18;;:29;602:9;583:29;;;;;;;;;;;;;;;;;;;;;;;;8:9:-1;5:2;;;45:16;42:1;39;24:38;77:16;74:1;67:27;5:2;583:29:3;639:10;623:5;629:6;623:13;;;;;;;;;:26;;;;;;;;;;;;;;;;;;500:157;;:::o;333:327::-;;;;;;;;;;;29:2:-1;21:6;17:15;117:4;105:10;97:6;88:34;148:4;140:6;136:17;126:27;;0:157;333:327:3;;;;:::o",
+  "source": "pragma solidity >=0.4.25 <0.7.0;\r\n\r\nimport \"./ConvertLib.sol\";\r\n\r\n// This is just a simple example of a coin-like contract.\r\n// It is not standards compatible and cannot be expected to talk to other\r\n// coin/token contracts. If you want to create a standards-compliant\r\n// token, see: https://github.com/ConsenSys/Tokens. Cheers!\r\n\r\ncontract Rides {\r\n\r\n        address[16] public rides;\r\n\r\n\r\n    function getRides() public view returns (address[16] memory) {\r\n        return rides;\r\n    }\r\n\r\n        function payRide(address payable _receiver, uint rideId) public payable {\r\n        _receiver.transfer(msg.value);\r\n        rides[rideId] = msg.sender;\r\n    }\r\n}",
   "sourcePath": "C:\\Users\\oscar\\Desktop\\tec-ride\\contracts\\Rides.sol",
   "ast": {
     "absolutePath": "project:/contracts/Rides.sol",
     "exportedSymbols": {
       "Rides": [
-        205
+        189
       ]
     },
-    "id": 206,
+    "id": 190,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -110,7 +94,7 @@
         "file": "./ConvertLib.sol",
         "id": 152,
         "nodeType": "ImportDirective",
-        "scope": 206,
+        "scope": 190,
         "sourceUnit": 17,
         "src": "36:26:3",
         "symbolAliases": [],
@@ -122,9 +106,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 205,
+        "id": 189,
         "linearizedBaseContracts": [
-          205
+          189
         ],
         "name": "Rides",
         "nodeType": "ContractDefinition",
@@ -134,7 +118,7 @@
             "id": 156,
             "name": "rides",
             "nodeType": "VariableDeclaration",
-            "scope": 205,
+            "scope": 189,
             "src": "361:24:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -185,9 +169,116 @@
           },
           {
             "body": {
-              "id": 180,
+              "id": 165,
               "nodeType": "Block",
-              "src": "447:129:3",
+              "src": "457:31:3",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 163,
+                    "name": "rides",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 156,
+                    "src": "475:5:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$16_storage",
+                      "typeString": "address[16] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 162,
+                  "id": 164,
+                  "nodeType": "Return",
+                  "src": "468:12:3"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 166,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRides",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 157,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "413:2:3"
+            },
+            "returnParameters": {
+              "id": 162,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 161,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 166,
+                  "src": "437:18:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_address_$16_memory_ptr",
+                    "typeString": "address[16]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 158,
+                      "name": "address",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "437:7:3",
+                      "stateMutability": "nonpayable",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "id": 160,
+                    "length": {
+                      "argumentTypes": null,
+                      "hexValue": "3136",
+                      "id": 159,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "445:2:3",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_16_by_1",
+                        "typeString": "int_const 16"
+                      },
+                      "value": "16"
+                    },
+                    "nodeType": "ArrayTypeName",
+                    "src": "437:11:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_address_$16_storage_ptr",
+                      "typeString": "address[16]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "436:20:3"
+            },
+            "scope": 189,
+            "src": "396:92:3",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 187,
+              "nodeType": "Block",
+              "src": "572:85:3",
               "statements": [
                 {
                   "expression": {
@@ -195,146 +286,69 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "commonType": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 176,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 204,
+                          "src": "602:3:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
                         },
-                        "id": 170,
+                        "id": 177,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
-                        "leftExpression": {
-                          "argumentTypes": null,
-                          "commonType": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          },
-                          "id": 166,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "leftExpression": {
-                            "argumentTypes": null,
-                            "id": 164,
-                            "name": "rideId",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 158,
-                            "src": "460:6:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_uint256",
-                              "typeString": "uint256"
-                            }
-                          },
-                          "nodeType": "BinaryOperation",
-                          "operator": ">=",
-                          "rightExpression": {
-                            "argumentTypes": null,
-                            "hexValue": "30",
-                            "id": 165,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": true,
-                            "kind": "number",
-                            "lValueRequested": false,
-                            "nodeType": "Literal",
-                            "src": "470:1:3",
-                            "subdenomination": null,
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_rational_0_by_1",
-                              "typeString": "int_const 0"
-                            },
-                            "value": "0"
-                          },
-                          "src": "460:11:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          }
-                        },
-                        "nodeType": "BinaryOperation",
-                        "operator": "&&",
-                        "rightExpression": {
-                          "argumentTypes": null,
-                          "commonType": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          },
-                          "id": 169,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "leftExpression": {
-                            "argumentTypes": null,
-                            "id": 167,
-                            "name": "rideId",
-                            "nodeType": "Identifier",
-                            "overloadedDeclarations": [],
-                            "referencedDeclaration": 158,
-                            "src": "475:6:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_uint256",
-                              "typeString": "uint256"
-                            }
-                          },
-                          "nodeType": "BinaryOperation",
-                          "operator": "<=",
-                          "rightExpression": {
-                            "argumentTypes": null,
-                            "hexValue": "3135",
-                            "id": 168,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": true,
-                            "kind": "number",
-                            "lValueRequested": false,
-                            "nodeType": "Literal",
-                            "src": "485:2:3",
-                            "subdenomination": null,
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_rational_15_by_1",
-                              "typeString": "int_const 15"
-                            },
-                            "value": "15"
-                          },
-                          "src": "475:12:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          }
-                        },
-                        "src": "460:27:3",
+                        "memberName": "value",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "602:9:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       }
                     ],
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
                         }
                       ],
-                      "id": 163,
-                      "name": "require",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        223,
-                        224
-                      ],
-                      "referencedDeclaration": 223,
-                      "src": "452:7:3",
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 173,
+                        "name": "_receiver",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 168,
+                        "src": "583:9:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "id": 175,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "transfer",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "583:18:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
-                        "typeString": "function (bool) pure"
+                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256)"
                       }
                     },
-                    "id": 171,
+                    "id": 178,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -342,20 +356,20 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "452:36:3",
+                    "src": "583:29:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 172,
+                  "id": 179,
                   "nodeType": "ExpressionStatement",
-                  "src": "452:36:3"
+                  "src": "583:29:3"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 178,
+                    "id": 185,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -364,26 +378,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 173,
+                        "id": 180,
                         "name": "rides",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 156,
-                        "src": "545:5:3",
+                        "src": "623:5:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$16_storage",
                           "typeString": "address[16] storage ref"
                         }
                       },
-                      "id": 175,
+                      "id": 182,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 174,
+                        "id": 181,
                         "name": "rideId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 158,
-                        "src": "551:6:3",
+                        "referencedDeclaration": 170,
+                        "src": "629:6:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -394,7 +408,7 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "545:13:3",
+                      "src": "623:13:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -406,18 +420,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 176,
+                        "id": 183,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 220,
-                        "src": "561:3:3",
+                        "referencedDeclaration": 204,
+                        "src": "639:3:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 177,
+                      "id": 184,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -425,322 +439,42 @@
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "561:10:3",
+                      "src": "639:10:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address_payable",
                         "typeString": "address payable"
                       }
                     },
-                    "src": "545:26:3",
+                    "src": "623:26:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 179,
+                  "id": 186,
                   "nodeType": "ExpressionStatement",
-                  "src": "545:26:3"
+                  "src": "623:26:3"
                 }
               ]
             },
             "documentation": null,
-            "id": 181,
+            "id": 188,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "payRide",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 159,
+              "id": 171,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 158,
-                  "name": "rideId",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 181,
-                  "src": "412:11:3",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 157,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "412:4:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "411:13:3"
-            },
-            "returnParameters": {
-              "id": 162,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 161,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 181,
-                  "src": "441:4:3",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 160,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "441:4:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "440:6:3"
-            },
-            "scope": 205,
-            "src": "395:181:3",
-            "stateMutability": "nonpayable",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": {
-              "id": 190,
-              "nodeType": "Block",
-              "src": "645:31:3",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 188,
-                    "name": "rides",
-                    "nodeType": "Identifier",
-                    "overloadedDeclarations": [],
-                    "referencedDeclaration": 156,
-                    "src": "663:5:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_address_$16_storage",
-                      "typeString": "address[16] storage ref"
-                    }
-                  },
-                  "functionReturnParameters": 187,
-                  "id": 189,
-                  "nodeType": "Return",
-                  "src": "656:12:3"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 191,
-            "implemented": true,
-            "kind": "function",
-            "modifiers": [],
-            "name": "getRides",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 182,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "601:2:3"
-            },
-            "returnParameters": {
-              "id": 187,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 186,
-                  "name": "",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 191,
-                  "src": "625:18:3",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_address_$16_memory_ptr",
-                    "typeString": "address[16]"
-                  },
-                  "typeName": {
-                    "baseType": {
-                      "id": 183,
-                      "name": "address",
-                      "nodeType": "ElementaryTypeName",
-                      "src": "625:7:3",
-                      "stateMutability": "nonpayable",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_address",
-                        "typeString": "address"
-                      }
-                    },
-                    "id": 185,
-                    "length": {
-                      "argumentTypes": null,
-                      "hexValue": "3136",
-                      "id": 184,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "kind": "number",
-                      "lValueRequested": false,
-                      "nodeType": "Literal",
-                      "src": "633:2:3",
-                      "subdenomination": null,
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_rational_16_by_1",
-                        "typeString": "int_const 16"
-                      },
-                      "value": "16"
-                    },
-                    "nodeType": "ArrayTypeName",
-                    "src": "625:11:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_address_$16_storage_ptr",
-                      "typeString": "address[16]"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "624:20:3"
-            },
-            "scope": 205,
-            "src": "584:92:3",
-            "stateMutability": "view",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": {
-              "id": 203,
-              "nodeType": "Block",
-              "src": "749:48:3",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "arguments": [
-                      {
-                        "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 199,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 220,
-                          "src": "779:3:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 200,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "value",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "779:9:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      ],
-                      "expression": {
-                        "argumentTypes": null,
-                        "id": 196,
-                        "name": "_receiver",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 193,
-                        "src": "760:9:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_address_payable",
-                          "typeString": "address payable"
-                        }
-                      },
-                      "id": 198,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "lValueRequested": false,
-                      "memberName": "transfer",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": null,
-                      "src": "760:18:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_transfer_nonpayable$_t_uint256_$returns$__$",
-                        "typeString": "function (uint256)"
-                      }
-                    },
-                    "id": 201,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "760:29:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 202,
-                  "nodeType": "ExpressionStatement",
-                  "src": "760:29:3"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 204,
-            "implemented": true,
-            "kind": "function",
-            "modifiers": [],
-            "name": "sendMoney",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 194,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 193,
+                  "id": 168,
                   "name": "_receiver",
                   "nodeType": "VariableDeclaration",
-                  "scope": 204,
-                  "src": "707:25:3",
+                  "scope": 188,
+                  "src": "517:25:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -748,10 +482,10 @@
                     "typeString": "address payable"
                   },
                   "typeName": {
-                    "id": 192,
+                    "id": 167,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "707:15:3",
+                    "src": "517:15:3",
                     "stateMutability": "payable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address_payable",
@@ -760,35 +494,61 @@
                   },
                   "value": null,
                   "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 170,
+                  "name": "rideId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 188,
+                  "src": "544:11:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 169,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "544:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
                 }
               ],
-              "src": "706:27:3"
+              "src": "516:40:3"
             },
             "returnParameters": {
-              "id": 195,
+              "id": 172,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "749:0:3"
+              "src": "572:0:3"
             },
-            "scope": 205,
-            "src": "688:109:3",
+            "scope": 189,
+            "src": "500:157:3",
             "stateMutability": "payable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 206,
-        "src": "333:467:3"
+        "scope": 190,
+        "src": "333:327:3"
       }
     ],
-    "src": "0:800:3"
+    "src": "0:660:3"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/Rides.sol",
       "exportedSymbols": {
         "Rides": [
-          205
+          189
         ]
       }
     },
@@ -814,7 +574,7 @@
           "SourceUnit": 17,
           "absolutePath": "project:/contracts/ConvertLib.sol",
           "file": "./ConvertLib.sol",
-          "scope": 206,
+          "scope": 190,
           "symbolAliases": [
             null
           ],
@@ -836,17 +596,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            205
+            189
           ],
           "name": "Rides",
-          "scope": 206
+          "scope": 190
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "rides",
-              "scope": 205,
+              "scope": 189,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address[16]",
@@ -905,368 +665,8 @@
               "modifiers": [
                 null
               ],
-              "name": "payRide",
-              "scope": 205,
-              "stateMutability": "nonpayable",
-              "superFunction": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "rideId",
-                      "scope": 181,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 157,
-                        "name": "ElementaryTypeName",
-                        "src": "412:4:3"
-                      }
-                    ],
-                    "id": 158,
-                    "name": "VariableDeclaration",
-                    "src": "412:11:3"
-                  }
-                ],
-                "id": 159,
-                "name": "ParameterList",
-                "src": "411:13:3"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 181,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 160,
-                        "name": "ElementaryTypeName",
-                        "src": "441:4:3"
-                      }
-                    ],
-                    "id": 161,
-                    "name": "VariableDeclaration",
-                    "src": "441:4:3"
-                  }
-                ],
-                "id": 162,
-                "name": "ParameterList",
-                "src": "440:6:3"
-              },
-              {
-                "children": [
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "isStructConstructorCall": false,
-                          "lValueRequested": false,
-                          "names": [
-                            null
-                          ],
-                          "type": "tuple()",
-                          "type_conversion": false
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_bool",
-                                  "typeString": "bool"
-                                }
-                              ],
-                              "overloadedDeclarations": [
-                                223,
-                                224
-                              ],
-                              "referencedDeclaration": 223,
-                              "type": "function (bool) pure",
-                              "value": "require"
-                            },
-                            "id": 163,
-                            "name": "Identifier",
-                            "src": "452:7:3"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "commonType": {
-                                "typeIdentifier": "t_bool",
-                                "typeString": "bool"
-                              },
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "operator": "&&",
-                              "type": "bool"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "commonType": {
-                                    "typeIdentifier": "t_uint256",
-                                    "typeString": "uint256"
-                                  },
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "operator": ">=",
-                                  "type": "bool"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 158,
-                                      "type": "uint256",
-                                      "value": "rideId"
-                                    },
-                                    "id": 164,
-                                    "name": "Identifier",
-                                    "src": "460:6:3"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "hexvalue": "30",
-                                      "isConstant": false,
-                                      "isLValue": false,
-                                      "isPure": true,
-                                      "lValueRequested": false,
-                                      "subdenomination": null,
-                                      "token": "number",
-                                      "type": "int_const 0",
-                                      "value": "0"
-                                    },
-                                    "id": 165,
-                                    "name": "Literal",
-                                    "src": "470:1:3"
-                                  }
-                                ],
-                                "id": 166,
-                                "name": "BinaryOperation",
-                                "src": "460:11:3"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "commonType": {
-                                    "typeIdentifier": "t_uint256",
-                                    "typeString": "uint256"
-                                  },
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "operator": "<=",
-                                  "type": "bool"
-                                },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": 158,
-                                      "type": "uint256",
-                                      "value": "rideId"
-                                    },
-                                    "id": 167,
-                                    "name": "Identifier",
-                                    "src": "475:6:3"
-                                  },
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "hexvalue": "3135",
-                                      "isConstant": false,
-                                      "isLValue": false,
-                                      "isPure": true,
-                                      "lValueRequested": false,
-                                      "subdenomination": null,
-                                      "token": "number",
-                                      "type": "int_const 15",
-                                      "value": "15"
-                                    },
-                                    "id": 168,
-                                    "name": "Literal",
-                                    "src": "485:2:3"
-                                  }
-                                ],
-                                "id": 169,
-                                "name": "BinaryOperation",
-                                "src": "475:12:3"
-                              }
-                            ],
-                            "id": 170,
-                            "name": "BinaryOperation",
-                            "src": "460:27:3"
-                          }
-                        ],
-                        "id": 171,
-                        "name": "FunctionCall",
-                        "src": "452:36:3"
-                      }
-                    ],
-                    "id": 172,
-                    "name": "ExpressionStatement",
-                    "src": "452:36:3"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "address"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": true,
-                              "type": "address"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 156,
-                                  "type": "address[16] storage ref",
-                                  "value": "rides"
-                                },
-                                "id": 173,
-                                "name": "Identifier",
-                                "src": "545:5:3"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 158,
-                                  "type": "uint256",
-                                  "value": "rideId"
-                                },
-                                "id": 174,
-                                "name": "Identifier",
-                                "src": "551:6:3"
-                              }
-                            ],
-                            "id": 175,
-                            "name": "IndexAccess",
-                            "src": "545:13:3"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "sender",
-                              "referencedDeclaration": null,
-                              "type": "address payable"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 220,
-                                  "type": "msg",
-                                  "value": "msg"
-                                },
-                                "id": 176,
-                                "name": "Identifier",
-                                "src": "561:3:3"
-                              }
-                            ],
-                            "id": 177,
-                            "name": "MemberAccess",
-                            "src": "561:10:3"
-                          }
-                        ],
-                        "id": 178,
-                        "name": "Assignment",
-                        "src": "545:26:3"
-                      }
-                    ],
-                    "id": 179,
-                    "name": "ExpressionStatement",
-                    "src": "545:26:3"
-                  }
-                ],
-                "id": 180,
-                "name": "Block",
-                "src": "447:129:3"
-              }
-            ],
-            "id": 181,
-            "name": "FunctionDefinition",
-            "src": "395:181:3"
-          },
-          {
-            "attributes": {
-              "documentation": null,
-              "implemented": true,
-              "isConstructor": false,
-              "kind": "function",
-              "modifiers": [
-                null
-              ],
               "name": "getRides",
-              "scope": 205,
+              "scope": 189,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1279,9 +679,9 @@
                   ]
                 },
                 "children": [],
-                "id": 182,
+                "id": 157,
                 "name": "ParameterList",
-                "src": "601:2:3"
+                "src": "413:2:3"
               },
               {
                 "children": [
@@ -1289,7 +689,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 191,
+                      "scope": 166,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "address[16]",
@@ -1308,9 +708,9 @@
                               "stateMutability": "nonpayable",
                               "type": "address"
                             },
-                            "id": 183,
+                            "id": 158,
                             "name": "ElementaryTypeName",
-                            "src": "625:7:3"
+                            "src": "437:7:3"
                           },
                           {
                             "attributes": {
@@ -1325,30 +725,30 @@
                               "type": "int_const 16",
                               "value": "16"
                             },
-                            "id": 184,
+                            "id": 159,
                             "name": "Literal",
-                            "src": "633:2:3"
+                            "src": "445:2:3"
                           }
                         ],
-                        "id": 185,
+                        "id": 160,
                         "name": "ArrayTypeName",
-                        "src": "625:11:3"
+                        "src": "437:11:3"
                       }
                     ],
-                    "id": 186,
+                    "id": 161,
                     "name": "VariableDeclaration",
-                    "src": "625:18:3"
+                    "src": "437:18:3"
                   }
                 ],
-                "id": 187,
+                "id": 162,
                 "name": "ParameterList",
-                "src": "624:20:3"
+                "src": "436:20:3"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 187
+                      "functionReturnParameters": 162
                     },
                     "children": [
                       {
@@ -1361,24 +761,24 @@
                           "type": "address[16] storage ref",
                           "value": "rides"
                         },
-                        "id": 188,
+                        "id": 163,
                         "name": "Identifier",
-                        "src": "663:5:3"
+                        "src": "475:5:3"
                       }
                     ],
-                    "id": 189,
+                    "id": 164,
                     "name": "Return",
-                    "src": "656:12:3"
+                    "src": "468:12:3"
                   }
                 ],
-                "id": 190,
+                "id": 165,
                 "name": "Block",
-                "src": "645:31:3"
+                "src": "457:31:3"
               }
             ],
-            "id": 191,
+            "id": 166,
             "name": "FunctionDefinition",
-            "src": "584:92:3"
+            "src": "396:92:3"
           },
           {
             "attributes": {
@@ -1389,8 +789,8 @@
               "modifiers": [
                 null
               ],
-              "name": "sendMoney",
-              "scope": 205,
+              "name": "payRide",
+              "scope": 189,
               "stateMutability": "payable",
               "superFunction": null,
               "visibility": "public"
@@ -1402,7 +802,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "_receiver",
-                      "scope": 204,
+                      "scope": 188,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address payable",
@@ -1416,19 +816,45 @@
                           "stateMutability": "payable",
                           "type": "address payable"
                         },
-                        "id": 192,
+                        "id": 167,
                         "name": "ElementaryTypeName",
-                        "src": "707:15:3"
+                        "src": "517:15:3"
                       }
                     ],
-                    "id": 193,
+                    "id": 168,
                     "name": "VariableDeclaration",
-                    "src": "707:25:3"
+                    "src": "517:25:3"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "rideId",
+                      "scope": 188,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 169,
+                        "name": "ElementaryTypeName",
+                        "src": "544:4:3"
+                      }
+                    ],
+                    "id": 170,
+                    "name": "VariableDeclaration",
+                    "src": "544:11:3"
                   }
                 ],
-                "id": 194,
+                "id": 171,
                 "name": "ParameterList",
-                "src": "706:27:3"
+                "src": "516:40:3"
               },
               {
                 "attributes": {
@@ -1437,9 +863,9 @@
                   ]
                 },
                 "children": [],
-                "id": 195,
+                "id": 172,
                 "name": "ParameterList",
-                "src": "749:0:3"
+                "src": "572:0:3"
               },
               {
                 "children": [
@@ -1483,18 +909,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 193,
+                                  "referencedDeclaration": 168,
                                   "type": "address payable",
                                   "value": "_receiver"
                                 },
-                                "id": 196,
+                                "id": 173,
                                 "name": "Identifier",
-                                "src": "760:9:3"
+                                "src": "583:9:3"
                               }
                             ],
-                            "id": 198,
+                            "id": 175,
                             "name": "MemberAccess",
-                            "src": "760:18:3"
+                            "src": "583:18:3"
                           },
                           {
                             "attributes": {
@@ -1514,48 +940,145 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 220,
+                                  "referencedDeclaration": 204,
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 199,
+                                "id": 176,
                                 "name": "Identifier",
-                                "src": "779:3:3"
+                                "src": "602:3:3"
                               }
                             ],
-                            "id": 200,
+                            "id": 177,
                             "name": "MemberAccess",
-                            "src": "779:9:3"
+                            "src": "602:9:3"
                           }
                         ],
-                        "id": 201,
+                        "id": 178,
                         "name": "FunctionCall",
-                        "src": "760:29:3"
+                        "src": "583:29:3"
                       }
                     ],
-                    "id": 202,
+                    "id": 179,
                     "name": "ExpressionStatement",
-                    "src": "760:29:3"
+                    "src": "583:29:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "address"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "address"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 156,
+                                  "type": "address[16] storage ref",
+                                  "value": "rides"
+                                },
+                                "id": 180,
+                                "name": "Identifier",
+                                "src": "623:5:3"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 170,
+                                  "type": "uint256",
+                                  "value": "rideId"
+                                },
+                                "id": 181,
+                                "name": "Identifier",
+                                "src": "629:6:3"
+                              }
+                            ],
+                            "id": 182,
+                            "name": "IndexAccess",
+                            "src": "623:13:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "sender",
+                              "referencedDeclaration": null,
+                              "type": "address payable"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 204,
+                                  "type": "msg",
+                                  "value": "msg"
+                                },
+                                "id": 183,
+                                "name": "Identifier",
+                                "src": "639:3:3"
+                              }
+                            ],
+                            "id": 184,
+                            "name": "MemberAccess",
+                            "src": "639:10:3"
+                          }
+                        ],
+                        "id": 185,
+                        "name": "Assignment",
+                        "src": "623:26:3"
+                      }
+                    ],
+                    "id": 186,
+                    "name": "ExpressionStatement",
+                    "src": "623:26:3"
                   }
                 ],
-                "id": 203,
+                "id": 187,
                 "name": "Block",
-                "src": "749:48:3"
+                "src": "572:85:3"
               }
             ],
-            "id": 204,
+            "id": 188,
             "name": "FunctionDefinition",
-            "src": "688:109:3"
+            "src": "500:157:3"
           }
         ],
-        "id": 205,
+        "id": 189,
         "name": "ContractDefinition",
-        "src": "333:467:3"
+        "src": "333:327:3"
       }
     ],
-    "id": 206,
+    "id": 190,
     "name": "SourceUnit",
-    "src": "0:800:3"
+    "src": "0:660:3"
   },
   "compiler": {
     "name": "solc",
@@ -1565,12 +1088,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x39425Aa61C9386BB448818C52940b9e7a7fcb336",
-      "transactionHash": "0xdd0fcfb25b54e8c7f372d3196d84045cadd0602931c246fa4ba6f8504f027507"
+      "address": "0xB5CCD897bf4B37aC916e5b17370a330B7137A5De",
+      "transactionHash": "0x6ec057b7f3fd6841716bc6077b799fd632312a85ba68e18d175d5679f75bd99b"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-25T03:24:53.341Z",
+  "updatedAt": "2022-05-25T03:38:14.683Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
