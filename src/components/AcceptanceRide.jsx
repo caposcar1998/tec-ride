@@ -1,11 +1,21 @@
 import Rides from '../../build/contracts/Rides.json'
+import travelsMock from '../mocks/travelsMock.json'
 import Web3 from 'web3';
 import Countdown from 'react-countdown';
 
+
 const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender}) => {
 
-
+    
+    
     async function createPayment(user, amount, id){
+        travelsMock.map((travel) => {
+            if (travel.id === id){
+                travel.open = "pending"
+                travel.driver = user
+            }
+        })
+        console.log(travelsMock)
         const web3 = new Web3(window.ethereum);
         const networkId = await web3.eth.net.getId()
 
@@ -15,10 +25,35 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
             gas: 61000,
             value: amountHex
         };
+
         const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
         const met = await sendMoney.methods.payRide(user, id).send({...params})
         console.log(met)
-      }
+    }
+
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+        if (completed) {
+            travelsMock.map((travel) => {
+                if (travel.id === id && travel.open === true){
+                    let maxBidAmount = 0
+                    let maxBidAddress = ""
+                    travel.bids.map((bid) => {
+                        if(maxBidAmount < bid.amount){
+                            maxBidAmount = bid.amount
+                            maxBidAddress = bid.address
+                        }
+                    })
+                    //console.log(`${id}: max bid = ${maxBidAmount}  /  max address = ${maxBidAddress}`)
+                    createPayment(maxBidAddress, maxBidAmount, id)
+                    return;
+                }
+            })
+
+        } else {
+          // Render a countdown
+            return <span>{hours}:{minutes}:{seconds}</span>;
+        }
+    };
 
 
     return(
@@ -50,7 +85,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                                     <div className="col-12">
                                         <div className="col-12 inline-block"></div>
                                         <h6>By:{by}</h6>
-                                        <h6>Active time: <Countdown date={Date.now() + (activeTime* 60 * 60 *1000)} /></h6>
+                                        <h6>Active time: <Countdown date={Date.now() + (activeTime* 60 * 60 * 1000 )} renderer={renderer} /></h6>
                                     </div>
                                 </div>
                             </div>
