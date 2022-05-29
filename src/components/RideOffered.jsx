@@ -1,5 +1,4 @@
 import { useState } from "react";
-import travelsMock from "../mocks/travelsMock.json"
 import Countdown from 'react-countdown';
 import AddOffer from "./AddOffer";
 

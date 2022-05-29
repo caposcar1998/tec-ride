@@ -1,4 +1,3 @@
-import MetaCoin from '../../build/contracts/MetaCoin.json'
 import Rides from '../../build/contracts/Rides.json'
 import Web3 from 'web3';
 import Countdown from 'react-countdown';

@@ -8,7 +8,6 @@ import CreateRide from './components/CreateRide';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import MyRides from './components/MyRides';
-import Testing from './components/Testing';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import Register from './components/Register';
@@ -43,7 +42,6 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>
         <Route path='/my-offers' element={<MyRides/>}/>
-        <Route path='/testing' element={<Testing/>}/>
       </Routes>
       </>    
     :
