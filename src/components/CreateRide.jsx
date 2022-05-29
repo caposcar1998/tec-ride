@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import travelsMock from '../mocks/travelsMock.json'
-import { v4 as uuidv4 } from 'uuid';
 import Rides from '../../build/contracts/Rides.json'
 import Web3 from 'web3';
 
@@ -9,7 +7,6 @@ const CreateRide = () => {
 
     const [date, setDate] = useState()
     const [hour, setHour] = useState()
-    const [people, setPeople] = useState()
     const [price, setPrice] = useState()
     const [reward, setReward] = useState()
     const [origin, setOrigin] = useState()
@@ -19,28 +16,19 @@ const CreateRide = () => {
 
     async function createNewRide(){
         setTotal(Number(price) + Number(reward))
-        travelsMock.push({
-            "id":uuidv4(),
-            "date":date,
-            "limit": Number(people),
-            "hour":hour,
-            "from":origin,
-            "to": end,
-            "driver": localStorage.getItem('user'),
-            "rider": "",
-            "costRide": Number(price),
-            "gas": Number(reward),
-            "total": total,
-            "bids": [],
-            "hoursActive":hoursActive
-
-        })
         const web3 = new Web3(window.ethereum);
         const networkId = await web3.eth.net.getId()
 
 
         const createRide = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-        const exceuted_contract = await createRide.methods.registerRide("el oscar").send({from: localStorage.getItem("idUser")})
+        const exceuted_contract = await createRide.methods.registerRide(
+            Number(price),
+            hoursActive,
+            date,
+            hour,
+            "",
+            origin + end,
+        ).send({from: localStorage.getItem("idUser")})
         console.log(exceuted_contract)
         alert("Creado con exito!")
     }
