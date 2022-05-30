@@ -26,6 +26,7 @@ const Offers = () => {
         const createRide = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
         const exceuted_contract = await createRide.methods.fetchRides().call()
         setRides(exceuted_contract)
+        console.log(exceuted_contract)
         console.log(rides)
     }
 
@@ -41,7 +42,7 @@ const Offers = () => {
                     to= {travel.destination}
                     by= {travel.driver}
                     cost={travel.cost}
-                    bids= {[]}
+                    bids= {travel.bids}
                     activeTime = {travel.timeActive}
    
                 />
