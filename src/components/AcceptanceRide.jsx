@@ -1,27 +1,60 @@
-import { CONTRACT_ABI, CONTRACT_ADDRESS } from '../config';
+import Rides from '../../build/contracts/Rides.json'
+import travelsMock from '../mocks/travelsMock.json'
 import Web3 from 'web3';
 import Countdown from 'react-countdown';
-import travelsMock from "../mocks/travelsMock.json"
+
 
 const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender}) => {
 
-
-
-    async function acceptUser(user, amount, id){
-        const web3 = new Web3('http://localhost:7545');
-        const sendMoney = new web3.eth.Contract(CONTRACT_ABI, localStorage.getItem('idUser'));
-        const met = await sendMoney.methods.sendCoin(localStorage.getItem('idUser'),amount).send({from:user})
-        console.log(met)
+    
+    
+    async function createPayment(user, amount, id){
         travelsMock.map((travel) => {
-            if (id === travel.id){
-                console.log("entra")
-                travel.open = false
+            if (travel.id === id){
+                travel.open = "pending"
+                travel.driver = user
             }
-            setRerender(!rerender)
         })
+        console.log(travelsMock)
+        const web3 = new Web3(window.ethereum);
+        const networkId = await web3.eth.net.getId()
 
+        const amountHex = (amount * Math.pow(10,18)).toString()
+        const params = {
+            from: localStorage.getItem("idUser"),
+            gas: 61000,
+            value: amountHex
+        };
 
-      }
+        const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+        const met = await sendMoney.methods.payRide(user, id).send({...params})
+        console.log(met)
+    }
+
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+        if (completed) {
+            travelsMock.map((travel) => {
+                if (travel.id === id && travel.open === true){
+                    let maxBidAmount = 0
+                    let maxBidAddress = ""
+                    travel.bids.map((bid) => {
+                        if(maxBidAmount < bid.amount){
+                            maxBidAmount = bid.amount
+                            maxBidAddress = bid.address
+                        }
+                    })
+                    //console.log(`${id}: max bid = ${maxBidAmount}  /  max address = ${maxBidAddress}`)
+                    createPayment(maxBidAddress, maxBidAmount, id)
+                    return;
+                }
+            })
+
+        } else {
+          // Render a countdown
+            return <span>{hours}:{minutes}:{seconds}</span>;
+        }
+    };
+
 
     return(
         <li className="list-group-item">
@@ -52,7 +85,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                                     <div className="col-12">
                                         <div className="col-12 inline-block"></div>
                                         <h6>By:{by}</h6>
-                                        <h6>Active time: <Countdown date={Date.now() + (activeTime* 60 * 60 *1000)} /></h6>
+                                        <h6>Active time: <Countdown date={Date.now() + (activeTime* 60 * 60 * 1000 )} renderer={renderer} /></h6>
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +103,7 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                                                 return(
                                                     <div className="container inline-block ">
                                                         <li>Address: {bid.address} - Bid: {bid.amount}</li>
-                                                        <button className="btn btn-success" onClick={() => acceptUser(bid.address, bid.amount, id)}>Accept</button>
+                                                        <button className="btn btn-success" onClick={() => createPayment(bid.address, bid.amount, id)}>Accept</button>
                                                     </div>
                                                 )
                                             })

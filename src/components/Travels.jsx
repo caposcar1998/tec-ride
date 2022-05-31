@@ -1,7 +1,24 @@
 import UserTravel from "./UserTravel"
 import travelsMock from '../mocks/travelsMock.json'
+import Rides from '../../build/contracts/Rides.json'
+import Web3 from 'web3';
+import { useEffect } from "react";
 const Travels = () => {
 
+
+    useEffect(() => {
+        getRidesUser()
+      });
+
+    async function getRidesUser(){
+        const web3 = new Web3(window.ethereum);
+        const networkId = await web3.eth.net.getId()
+
+
+        const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+        const met = await sendMoney.methods.fetchRides().call()
+        console.log(met)
+      }
 
     return(
     <div className="container">
@@ -17,7 +34,7 @@ const Travels = () => {
                         costRide= {travel.costRide}
                         id = {travel.id}
                     />
-                : null
+                : <h1>hola</h1>
                 })
             }
 

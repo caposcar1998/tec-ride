@@ -1,5 +1,4 @@
 import { useState } from "react";
-import travelsMock from "../mocks/travelsMock.json"
 import Countdown from 'react-countdown';
 import AddOffer from "./AddOffer";
 
@@ -69,7 +68,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                         {
                                             bids.map((bid,index) =>{
                                                 return(
-                                                    <li>Address: {bid.address} - Offered: {bid.amount} eth</li>
+                                                    <li>Ammount: {bid}</li>
                                                 )
                                             })
                                         }                       

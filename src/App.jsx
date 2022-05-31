@@ -8,7 +8,7 @@ import CreateRide from './components/CreateRide';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import MyRides from './components/MyRides';
-import Testing from './components/Testing';
+//import Testing from './components/Testing';
 import UserRides from './components/UserRides';
 import {useEffect, useState} from 'react';
 import Web3 from 'web3';
