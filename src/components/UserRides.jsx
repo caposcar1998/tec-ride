@@ -1,6 +1,6 @@
 import travelsMock from '../mocks/travelsMock.json';
 import AcceptanceRideUser from './AcceptanceRideUser';
-import ClosedRideUser from './ClosedRide';
+import ClosedRideUser from './ClosedRideUser';
 import {useState} from 'react';
 
 const MyRides = () => {
