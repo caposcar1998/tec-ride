@@ -1,7 +1,6 @@
-import RideOffered from './RideOffered';
 import travelsMock from '../mocks/travelsMock.json';
-import AcceptanceRide from './AcceptanceRide';
-import ClosedRide from './ClosedRide';
+import AcceptanceRideUser from './AcceptanceRideUser';
+import ClosedRideUser from './ClosedRide';
 import {useState} from 'react';
 
 const MyRides = () => {
@@ -12,20 +11,18 @@ const MyRides = () => {
 			<ul className="list-group">
 				{travelsMock.map((travel, index) => {
 					return travel.open ? (
-						<AcceptanceRide
+						<AcceptanceRideUser
 							id={travel.id}
 							date={travel.date + ' ' + travel.hour}
 							from={travel.from}
 							to={travel.to}
 							by={travel.driver}
 							cost={travel.costRide}
-							bids={travel.bids}
-							activeTime={travel.hoursActive}
 							rerender={rerender}
 							setRerender={setRerender}
 						/>
 					) : (
-						<ClosedRide bids={travel.bids} />
+						<ClosedRideUser bids={travel.bids} />
 					);
 				})}
 			</ul>
