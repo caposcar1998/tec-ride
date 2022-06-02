@@ -14,7 +14,7 @@ const MyRides = () => {
 						<AcceptanceRideUser
 							id={travel.id}
 							date={travel.date + ' ' + travel.hour}
-							from={travel.from}
+							from={travel.froml}
 							to={travel.to}
 							by={travel.driver}
 							cost={travel.costRide}

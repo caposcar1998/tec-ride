@@ -22,7 +22,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
 
     return(
         <>
-        <AddOffer show={show} handleShow={handleShow} handleClose={handleClose} id={id}/>
+        <AddOffer show={show} handleShow={handleShow} handleClose={handleClose} bids={bids}/>
         <li className="list-group-item">
             <div className="container">
                 <div className="row">
@@ -66,7 +66,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                 <div className="col-12">
                                     <ul className="list-group">
                                         {
-                                            bids.map((bid,index) =>{
+                                            bids.split("|").map((bid,index) =>{
                                                 return(
                                                     <li>Ammount: {bid}</li>
                                                 )

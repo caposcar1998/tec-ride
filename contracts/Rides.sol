@@ -11,11 +11,6 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 contract Rides {
 
 
-    struct Bid {
-        string rider;
-        uint ammount;
-    }
-
     struct Ride {
     uint cost;
     uint timeActive;
@@ -24,7 +19,7 @@ contract Rides {
     address driver;
     string rider;
     string destination;
-    address [] bids;
+    string bids;
     string status;
     }
 
@@ -56,8 +51,7 @@ contract Rides {
     ridesIds.increment();
     uint rideId = ridesIds.current();
     address _address = address(msg.sender);
-    address [] memory bids = new address[](0);
-    Ride memory newRide = Ride(cost, timeActive, date, hour, msg.sender, rider, destination, bids , "open");  
+    Ride memory newRide = Ride(cost, timeActive, date, hour, msg.sender, rider, destination, "" , "open");  
     rides[_address] = newRide;  
     accounts[rideId] = msg.sender;
     emit rideCreated(_address, msg.sender, rider);
@@ -74,6 +68,7 @@ contract Rides {
             return ridesArray;
         }
 
+
     function fetchRidesDriver()external view returns (Ride[] memory) {
         uint itemCount = ridesIds.current();
         Ride[] memory ridesArray = new Ride[](itemCount);
@@ -87,5 +82,10 @@ contract Rides {
                 
             }
             return ridesArray;        
+    }
+
+    function makeBid(string calldata bids , address rideId) public {
+        rides[rideId].bids = bids;
+
     }
 }

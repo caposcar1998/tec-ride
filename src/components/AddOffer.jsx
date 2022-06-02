@@ -1,20 +1,23 @@
 
-import travelsMock from "../mocks/travelsMock.json"
+import Rides from '../../build/contracts/Rides.json'
+import Web3 from 'web3';
 import { Button, Form, Modal } from "react-bootstrap";
 import { useState } from "react";
 
-function AddOffer({show, handleShow, handleClose, id}) {
+function AddOffer({show, handleShow, handleClose, bids}) {
 
     const [rerender, setRerender] = useState(false);
     const [ether, setEther] = useState(0)
 
-    function createOffer(){
+    async function createOffer(beforeBids){
 
-    travelsMock.map((travel) => {
-        if (travel.id === id){
-            travel.bids.push({"address":localStorage.getItem('idUser'), "amount":ether})
-        }
-    })
+      const newBids = beforeBids.concat(`|rider:${localStorage.getItem("idUser")},bid:${ether}`)
+      console.log(newBids)
+      const web3 = new Web3(window.ethereum);
+      const networkId = await web3.eth.net.getId()
+      const createBid = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+      const exceuted_contract = await createBid.methods.makeBid(newBids, localStorage.getItem("idUser")).send({from: localStorage.getItem("idUser")})
+      console.log(exceuted_contract)
     handleClose()
     setRerender(!rerender);
 }
@@ -38,7 +41,7 @@ function AddOffer({show, handleShow, handleClose, id}) {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={createOffer}>
+            <Button variant="primary" onClick={() => createOffer(bids)}>
               Save Changes
             </Button>
           </Modal.Footer>

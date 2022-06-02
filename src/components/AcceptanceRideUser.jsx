@@ -3,6 +3,8 @@ import travelsMock from '../mocks/travelsMock.json';
 import Web3 from 'web3';
 
 const AcceptanceRide = ({id, date, from, to, cost}) => {
+
+	
 	async function createPayment(user, amount, id) {
 		travelsMock.map(travel => {
 			if (travel.id === id) {
