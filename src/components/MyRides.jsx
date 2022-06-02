@@ -1,4 +1,3 @@
-import travelsMock from "../mocks/travelsMock.json"
 import Rides from '../../build/contracts/Rides.json'
 import Web3 from 'web3';
 import AcceptanceRide from "./AcceptanceRide"
@@ -21,34 +20,33 @@ const MyRides = () => {
 
 
         const createRide = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-        const exceuted_contract = await createRide.methods.fetchRidesDriver(localStorage.getItem("idUser")).call()
+        const exceuted_contract = await createRide.methods.fetchRides().call()
         setRides(exceuted_contract)
         console.log(exceuted_contract)
-        console.log(rides)
     }
 
     return(
         <div className="container">
             <ul className="list-group">
                 {
-                    travelsMock.map((travel, index) => {
+                    rides.map((travel, index) => {
                         return( 
-                        travel.open?
-                        <AcceptanceRide
-                        date= {travel.date +" " +travel.hour}
-                        from= {travel.destination}
-                        to= {travel.destination}
-                        by= {travel.driver}
-                        cost={travel.cost}
-                        bids= {travel.bids}
-                        activeTime = {travel.timeActive}
-                        rerender= {rerender}
-                        setRerender = {setRerender}
+                            travel.driver == localStorage.getItem("idUser") ?
+                            <AcceptanceRide
+                            date= {travel.date +" " +travel.hour}
+                            from= {travel.destination}
+                            to= {travel.destination}
+                            by= {travel.driver}
+                            cost={travel.cost}
+                            bids= {travel.bids}
+                            activeTime = {travel.timeActive}
+                            rerender= {rerender}
+                            setRerender = {setRerender}
                         />
-                        :
-                        <ClosedRide bids={travel.bids}/>
-                    
+                            :
+                            <ClosedRide bids={travel.bids}/>
                         )
+                        
                     })
                 }
     
