@@ -8,14 +8,11 @@ const CreateRide = () => {
     const [date, setDate] = useState()
     const [hour, setHour] = useState()
     const [price, setPrice] = useState()
-    const [reward, setReward] = useState()
     const [origin, setOrigin] = useState()
     const [end, setEnd] = useState()
-    const [total, setTotal] = useState()
     const [hoursActive, setHoursActive] = useState()
 
     async function createNewRide(){
-        setTotal(Number(price) + Number(reward))
         const web3 = new Web3(window.ethereum);
         const networkId = await web3.eth.net.getId()
 
@@ -30,7 +27,6 @@ const CreateRide = () => {
             origin + end,
         ).send({from: localStorage.getItem("idUser")})
         console.log(exceuted_contract)
-        alert("Creado con exito!")
     }
 
     return(
@@ -43,7 +39,7 @@ const CreateRide = () => {
                 <div className='col-12 d-flex justify-content-center'>
                     <div className='container'>
                         <div className='row'>
-                            <div className='col-4 d-flex justify-content-center'>
+                            <div className='col-6 d-flex justify-content-center'>
                                 <div className='container'>
                                     <div className='row'>
                                         <div className='col-12'>
@@ -57,7 +53,7 @@ const CreateRide = () => {
                                     </div>
                                 </div>                                 
                             </div>
-                            <div className='col-4 d-flex justify-content-center'>
+                            <div className='col-6 d-flex justify-content-center'>
                             <div className='container'>
                                     <div className='row'>
                                         <div className='col-12'>
@@ -71,22 +67,8 @@ const CreateRide = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='col-4 d-flex justify-content-center'>
-                                
-                                <div className='container'>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        Limit people
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        <input onChange={event => setPeople(event.target.value)} class="form-control input-sm" type="number"/>   
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-4 d-flex justify-content-center'>
+
+                            <div className='col-6 d-flex justify-content-center'>
                                 <div className='container'>
                                     <div className='row'>
                                         <div className='col-12'>
@@ -101,36 +83,7 @@ const CreateRide = () => {
                                 </div>
                             </div>
 
-                            <div className='col-4 d-flex justify-content-center'>
-                                
-                                <div className='container'>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        Reward
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        <input onChange={event => setReward(event.target.value)} class="form-control input-sm" type="number"/>   
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='col-4 d-flex justify-content-center'>
-                            <div className='container'>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        Total
-                                        </div>
-                                    </div>
-                                    <div className='row'>
-                                        <div className='col-12'>
-                                        {Number(price)+Number(reward)}   
-                                        </div>
-                                    </div>
-                                </div>                                        
-                            </div>
-                            <div className='col-4 d-flex justify-content-center'>
+                            <div className='col-6 d-flex justify-content-center'>
                             <div className='container'>
                                     <div className='row'>
                                         <div className='col-12'>

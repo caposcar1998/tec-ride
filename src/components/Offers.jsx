@@ -36,7 +36,6 @@ const Offers = () => {
             {
                 rides.map((travel, index) => {
                     return <RideOffered
-                    id={1}
                     date= {travel.date +" " +travel.hour}
                     from= {travel.destination}
                     to= {travel.destination}
