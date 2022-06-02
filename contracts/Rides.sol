@@ -73,4 +73,18 @@ contract Rides {
             }
             return ridesArray;
         }
+
+    function fetchRidesDriver(address driver)external view returns (Ride[] memory) {
+        uint itemCount = ridesIds.current();
+        Ride[] memory ridesArray = new Ride[](itemCount);
+            for (uint i = 0; i < itemCount; i++) {
+                uint currentId = i + 1;
+                Ride memory currentRide = rides[accounts[currentId]];
+                if (ridesArray[i].driver == driver){
+                    ridesArray[i] = currentRide;
+                }
+                
+            }
+            return ridesArray;        
+    }
 }

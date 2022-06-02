@@ -25,9 +25,9 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
             gas: 61000,
             value: amountHex
         };
-
+        console.log(user, amount, id)
         const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-        const met = await sendMoney.methods.payRide(user, id).send({...params})
+        const met = await sendMoney.methods.payRide(user, user, user).send({...params})
         console.log(met)
     }
 
