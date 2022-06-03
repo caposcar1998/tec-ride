@@ -2,7 +2,7 @@ import Rides from '../../build/contracts/Rides.json';
 import travelsMock from '../mocks/travelsMock.json';
 import Web3 from 'web3';
 
-const AcceptanceRide = ({id, date, from, to, cost}) => {
+const AcceptanceRide = ({ date, destination, cost, rerender, setRerender}) => {
 
 	
 	async function createPayment(user, amount) {
@@ -32,10 +32,7 @@ const AcceptanceRide = ({id, date, from, to, cost}) => {
 									<h1>{date}</h1>
 								</div>
 								<div className="col-12">
-									<h3>From: {from}</h3>
-								</div>
-								<div className="col-12">
-									<h3>To: {to}</h3>
+									<h3>Destination: {destination}</h3>
 								</div>
 								<div className="col-12">
 									<h3>Total cost: {cost}</h3>

@@ -31,12 +31,9 @@ const MyRides = () => {
 				{rides.map((travel, index) => {
 					return (
 						<AcceptanceRideUser
-							id={travel.id}
 							date={travel.date + ' ' + travel.hour}
-							from={travel.froml}
-							to={travel.to}
-							by={travel.driver}
-							cost={travel.costRide}
+							destination={travel.destination}
+							cost={travel.cost}
 							rerender={rerender}
 							setRerender={setRerender}
 						/>
