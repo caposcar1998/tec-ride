@@ -5,14 +5,7 @@ import Web3 from 'web3';
 const AcceptanceRide = ({id, date, from, to, cost}) => {
 
 	
-	async function createPayment(user, amount, id) {
-		travelsMock.map(travel => {
-			if (travel.id === id) {
-				travel.open = 'pending';
-				travel.driver = user;
-			}
-		});
-		console.log(travelsMock);
+	async function createPayment(user, amount) {
 		const web3 = new Web3(window.ethereum);
 		const networkId = await web3.eth.net.getId();
 
@@ -22,9 +15,9 @@ const AcceptanceRide = ({id, date, from, to, cost}) => {
 			gas: 61000,
 			value: amountHex,
 		};
-
+		console.log(user)
 		const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-		const met = await sendMoney.methods.payRide(user, id).send({...params});
+		const met = await sendMoney.methods.payRide("0x3755a97396F60aE56E1b57Ee119745a59fD44923").send({...params});
 		console.log(met);
 	}
 
@@ -54,7 +47,7 @@ const AcceptanceRide = ({id, date, from, to, cost}) => {
 						<div className="container">
 							<div className="row">
 								<div className="d-flex justify-content-center col-12">
-									<button className="btn btn-success">Accept</button>
+									<button className="btn btn-success" onClick={() => createPayment(localStorage.getItem("idUser"),2)}>Accept</button>
 								</div>
 							</div>
 						</div>

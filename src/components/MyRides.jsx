@@ -1,7 +1,6 @@
 import Rides from '../../build/contracts/Rides.json'
 import Web3 from 'web3';
 import AcceptanceRide from "./AcceptanceRide"
-import ClosedRide from "./ClosedRide"
 import { useEffect, useState } from "react"
 
 const MyRides = () => {
