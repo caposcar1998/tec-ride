@@ -68,7 +68,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                         {
                                             bids.split("|").map((bid,index) =>{
                                                 return(
-                                                    <li>Ammount: {bid}</li>
+                                                    <li>{bid}</li>
                                                 )
                                             })
                                         }                       

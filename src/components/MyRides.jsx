@@ -31,7 +31,6 @@ const MyRides = () => {
                 {
                     rides.map((travel, index) => {
                         return( 
-                            travel.driver == localStorage.getItem("idUser") ?
                             <AcceptanceRide
                             date= {travel.date +" " +travel.hour}
                             from= {travel.destination}
@@ -43,8 +42,6 @@ const MyRides = () => {
                             rerender= {rerender}
                             setRerender = {setRerender}
                         />
-                            :
-                            <ClosedRide bids={travel.bids}/>
                         )
                         
                     })

@@ -1,5 +1,4 @@
 import Rides from '../../build/contracts/Rides.json'
-import travelsMock from '../mocks/travelsMock.json'
 import Web3 from 'web3';
 import Countdown from 'react-countdown';
 
@@ -8,51 +7,12 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
 
     
     
-    async function createPayment(user, amount, id){
-        travelsMock.map((travel) => {
-            if (travel.id === id){
-                travel.open = "pending"
-                travel.driver = user
-            }
-        })
-        console.log(travelsMock)
-        const web3 = new Web3(window.ethereum);
-        const networkId = await web3.eth.net.getId()
-
-        const amountHex = (amount * Math.pow(10,18)).toString()
-        const params = {
-            from: localStorage.getItem("idUser"),
-            gas: 61000,
-            value: amountHex
-        };
-        console.log(user, amount, id)
-        const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-        const met = await sendMoney.methods.payRide(user, user, user).send({...params})
-        console.log(met)
+    async function acceptPayment(bid){
+        console.log("acepto de este usuario")
     }
 
-    const renderer = ({ hours, minutes, seconds, completed }) => {
-        if (completed) {
-            travelsMock.map((travel) => {
-                if (travel.id === id && travel.open === true){
-                    let maxBidAmount = 0
-                    let maxBidAddress = ""
-                    travel.bids.map((bid) => {
-                        if(maxBidAmount < bid.amount){
-                            maxBidAmount = bid.amount
-                            maxBidAddress = bid.address
-                        }
-                    })
-                    //console.log(`${id}: max bid = ${maxBidAmount}  /  max address = ${maxBidAddress}`)
-                    createPayment(maxBidAddress, maxBidAmount, id)
-                    return;
-                }
-            })
-
-        } else {
-          // Render a countdown
-            return <span>{hours}:{minutes}:{seconds}</span>;
-        }
+    const renderer = () => {
+        
     };
 
 
@@ -99,11 +59,11 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                                 <div className="col-12">
                                     <ul className="list-group">
                                         {
-                                            bids.map((bid,index) =>{
+                                            bids.split("|").map((bid,index) =>{
                                                 return(
                                                     <div className="container inline-block ">
-                                                        <li>Address: {bid.address} - Bid: {bid.amount}</li>
-                                                        <button className="btn btn-success" onClick={() => createPayment(bid.address, bid.amount, id)}>Accept</button>
+                                                        <li>{bid}</li>
+                                                        <button className="btn btn-success" onClick={() => acceptPayment(bid)}>Accept</button>
                                                     </div>
                                                 )
                                             })

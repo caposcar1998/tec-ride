@@ -20,9 +20,6 @@ const NavBar = () => {
 			<Link to="/user-rides">
 				<button className="btn">Accept ride</button>
 			</Link>
-			<Link to="/travels">
-				<button className="btn">Travels</button>
-			</Link>
 		</nav>
 	);
 };
