@@ -2,7 +2,7 @@ import { useState } from "react";
 import Countdown from 'react-countdown';
 import AddOffer from "./AddOffer";
 
-const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
+const RideOffered = ({id, date, from, to, by, bids, cost, activeTime, status}) => {
 
 
     
@@ -52,7 +52,12 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                         <div className="col-12 inline-block"></div>
                                         <h6>By:{by}</h6>
                                         <h6>Active time: <Countdown date={Date.now() + (activeTime* 60 * 60 *1000)} /></h6>
-                                        <button className="btn btn-success" onClick={makeOffer}>Make a bid</button>
+                                        <h6>Status: {status}</h6>
+                                        {status == "open" ?
+                                        <button  className="btn btn-success" onClick={makeOffer}>Make a bid</button>
+                                        :
+                                        <button disabled className="btn btn-success" onClick={makeOffer}>Make a bid</button>
+                                        }
                                     </div>
                                 </div>
                             </div>

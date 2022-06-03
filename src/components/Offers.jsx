@@ -43,7 +43,7 @@ const Offers = () => {
                     cost={travel.cost}
                     bids= {travel.bids}
                     activeTime = {travel.timeActive}
-   
+                    status = {travel.status}
                 />
                 })
             }
