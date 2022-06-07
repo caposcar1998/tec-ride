@@ -15,9 +15,9 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender}) => {
 			gas: 61000,
 			value: amountHex,
 		};
-		console.log(user)
+
 		const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-		const met = await sendMoney.methods.payRide("0x3755a97396F60aE56E1b57Ee119745a59fD44923").send({...params});
+		const met = await sendMoney.methods.payRide("0x9F7B913EE969f4f9FCc6a9DD41C581Ae4bf30E1e").send({...params});
 		console.log(met);
 	}
 

@@ -35,14 +35,11 @@ contract Rides {
 
         function payRide(address payable _receiver) public payable {
         _receiver.transfer(msg.value);
-        //rides[rideId].status = "closed";
-        //rides[rideId].rider = rider;
+        address _address = address(msg.sender);
+        Ride memory newRide = Ride(0,0, 0, "", "", msg.sender, "", "", "" , "closed"); 
+        rides[_address] = newRide; 
+        accounts[0] = msg.sender; 
         emit Selected(_receiver, msg.sender, msg.value);
-    }
-
-    function random(uint number , address sender) private view returns(uint){
-        return uint(keccak256(abi.encodePacked(block.timestamp,block.difficulty,  
-       sender))) % number;
     }
 
     function registerRide(
@@ -57,8 +54,7 @@ contract Rides {
     ridesIds.increment();
     uint rideId = ridesIds.current();
     address _address = address(msg.sender);
-    uint generate_id = random(10000, msg.sender);
-    Ride memory newRide = Ride(generate_id ,cost, timeActive, date, hour, msg.sender, rider, destination, "" , "open");  
+    Ride memory newRide = Ride(rideId, cost, timeActive, date, hour, msg.sender, rider, destination, "" , "open");  
     rides[_address] = newRide;  
     accounts[rideId] = msg.sender;
     emit rideCreated(_address, msg.sender, rider);
