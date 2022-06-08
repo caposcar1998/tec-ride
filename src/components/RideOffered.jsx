@@ -22,7 +22,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime, status}) =
 
     return(
         <>
-        <AddOffer show={show} handleShow={handleShow} handleClose={handleClose} bids={bids}/>
+        <AddOffer by={by} show={show} handleShow={handleShow} handleClose={handleClose} bids={bids}/>
         <li className="list-group-item">
             <div className="container">
                 <div className="row">
