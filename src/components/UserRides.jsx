@@ -30,6 +30,7 @@ const MyRides = () => {
 			<ul className="list-group">
 				{rides.map((travel, index) => {
 					return (
+						travel.driver == localStorage.getItem("idUser") ?
 						<AcceptanceRideUser
 							date={travel.date + ' ' + travel.hour}
 							destination={travel.destination}
@@ -37,7 +38,10 @@ const MyRides = () => {
 							rerender={rerender}
 							setRerender={setRerender}
 						/>
+						: null
 					)
+					
+
 				})}
 			</ul>
 		</div>
