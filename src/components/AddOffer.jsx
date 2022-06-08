@@ -16,6 +16,7 @@ function AddOffer({by, show, handleShow, handleClose, bids}) {
       const web3 = new Web3(window.ethereum);
       const networkId = await web3.eth.net.getId()
       const createBid = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+      console.log(by)
       const exceuted_contract = await createBid.methods.makeBid(newBids, by).send({from: localStorage.getItem("idUser")})
       console.log(exceuted_contract)
     handleClose()

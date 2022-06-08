@@ -33,11 +33,11 @@ contract Rides {
     event Selected(address indexed _driverAddress, address indexed _riderAddress, uint _totalPayed);
 
 
-        function payRide(address payable _receiver) public payable {
+        function payRide(address payable _receiver, string calldata rider) public payable {
         _receiver.transfer(msg.value);
         address _address = address(msg.sender);
-        Ride memory newRide = Ride(0,0, 0, "", "", msg.sender, "", "", "" , "closed"); 
-        rides[_address] = newRide; 
+        rides[_address].status = "closed";
+        rides[_address].rider = rider; 
         accounts[0] = msg.sender; 
         emit Selected(_receiver, msg.sender, msg.value);
     }

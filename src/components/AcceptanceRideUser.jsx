@@ -5,7 +5,7 @@ import Web3 from 'web3';
 const AcceptanceRide = ({ date, destination, cost, rerender, setRerender}) => {
 
 	
-	async function createPayment(user, amount) {
+	async function createPayment(user, amount, destination) {
 		const web3 = new Web3(window.ethereum);
 		const networkId = await web3.eth.net.getId();
 
@@ -16,7 +16,7 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender}) => {
 			value: amountHex,
 		};
 		const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-		const met = await sendMoney.methods.payRide(user).send({...params});
+		const met = await sendMoney.methods.payRide(user, "addressUser").send({...params});
 		console.log(met);
 	}
 
@@ -43,7 +43,7 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender}) => {
 						<div className="container">
 							<div className="row">
 								<div className="d-flex justify-content-center col-12">
-									<button className="btn btn-success" onClick={() => createPayment(localStorage.getItem("idUser"),2)}>Accept</button>
+									<button className="btn btn-success" onClick={() => createPayment(localStorage.getItem("idUser"),cost, destination)}>Accept</button>
 								</div>
 							</div>
 						</div>
