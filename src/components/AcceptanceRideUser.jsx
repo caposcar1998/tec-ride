@@ -2,7 +2,7 @@ import Rides from '../../build/contracts/Rides.json';
 import travelsMock from '../mocks/travelsMock.json';
 import Web3 from 'web3';
 
-const AcceptanceRide = ({ date, destination, cost, rerender, setRerender, by}) => {
+const AcceptanceRide = ({ date, destination, cost, rerender, setRerender, by, status}) => {
 
 	
 	async function createPayment(user, amount) {
@@ -30,7 +30,7 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender, by}) =
 						<div className="container">
 							<div className="row">
 								<div className="col-12">
-									<h1>{date}</h1>
+									<h1>Date: {date}</h1>
 								</div>
 								<div className="col-12">
 									<h3>Destination: {destination}</h3>
@@ -45,8 +45,12 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender, by}) =
 						<div className="container">
 							<div className="row">
 								<div className="d-flex justify-content-center col-12">
+								{status == "open" || status == "pending" ? 
 									<button className="btn btn-success" onClick={() => createPayment(by,cost)}>Accept</button>
-								</div>
+								:
+								<button className="btn btn-danger" disabled onClick={() => createPayment(by,cost)}>Closed</button>
+								}
+									</div>
 							</div>
 						</div>
 					</div>

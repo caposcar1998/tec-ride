@@ -3,7 +3,7 @@ import Web3 from 'web3';
 import Countdown from 'react-countdown';
 
 
-const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender}) => {
+const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerender, setRerender, status}) => {
 
     
     
@@ -64,6 +64,8 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                     <div className="col-12">
                         <div className="container">
                             <div className="row">
+                                {status == "open" ? 
+                                <>
                                 <div className="d-flex justify-content-center col-12">
                                     <h2>Bids</h2>
                                 </div>
@@ -82,6 +84,8 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
                                     </ul>
 
                                 </div>
+                                </>
+                                : <h1>No more bids</h1>}
                             </div>
                         </div>
                     </div>

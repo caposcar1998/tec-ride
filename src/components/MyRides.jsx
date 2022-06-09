@@ -40,6 +40,7 @@ const MyRides = () => {
                             activeTime = {travel.timeActive}
                             rerender= {rerender}
                             setRerender = {setRerender}
+                            status = {travel.status}
                         />
                         )
                         

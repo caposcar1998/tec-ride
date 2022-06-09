@@ -38,6 +38,7 @@ const MyRides = () => {
 							rerender={rerender}
 							setRerender={setRerender}
 							by={travel.rider}
+							status={travel.status}
 						/>
 						: null
 					)

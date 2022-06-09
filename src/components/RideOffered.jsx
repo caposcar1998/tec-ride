@@ -65,6 +65,8 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime, status}) =
                     <div className="col-12">
                         <div className="container">
                             <div className="row">
+                            {status == "open" ? 
+                            <>
                                 <div className="d-flex justify-content-center col-12">
                                     <h2>Bids</h2>
                                 </div>
@@ -80,6 +82,8 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime, status}) =
                                     </ul>
 
                                 </div>
+                                </>
+                                : <h1>No more bids</h1>}
                             </div>
                         </div>
                     </div>
