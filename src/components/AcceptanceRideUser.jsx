@@ -12,11 +12,11 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender}) => {
 		const amountHex = (amount * Math.pow(10, 18)).toString();
 		const params = {
 			from: localStorage.getItem('idUser'),
-			gas: 61000,
+			gas: 81000,
 			value: amountHex,
 		};
 		const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
-		const met = await sendMoney.methods.payRide(user, "addressUser").send({...params});
+		const met = await sendMoney.methods.payRide(user, "rider").send({...params});
 		console.log(met);
 	}
 

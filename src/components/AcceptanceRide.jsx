@@ -8,7 +8,18 @@ const AcceptanceRide = ({id, date, from, to, by, bids, cost, activeTime, rerende
     
     
     async function acceptPayment(bid){
-        console.log("acepto de este usuario")
+        console.log(bid)
+        const rider = bid.substring(
+            bid.indexOf(":") + 1, 
+            bid.lastIndexOf(",bid:")
+        )
+        const cost = Number(bid.split('bid:')[1])
+        
+        const web3 = new Web3(window.ethereum);
+        const networkId = await web3.eth.net.getId()
+        const createBid = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+        const exceuted_contract = await createBid.methods.preAproveRide(localStorage.getItem("idUser"), rider, cost).send({from: localStorage.getItem("idUser")})
+        console.log(exceuted_contract)
     }
 
     const renderer = () => {

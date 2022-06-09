@@ -91,4 +91,10 @@ contract Rides {
         rides[rideId].bids = bids;
 
     }
+
+    function preAproveRide(address driver, string calldata rider, uint cost) public {
+        rides[driver].status = "pending";
+        rides[driver].rider = rider;
+        rides[driver].cost = cost; 
+    }
 }
