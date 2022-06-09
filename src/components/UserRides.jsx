@@ -37,6 +37,7 @@ const MyRides = () => {
 							cost={travel.cost}
 							rerender={rerender}
 							setRerender={setRerender}
+							by={travel.rider}
 						/>
 						: null
 					)
