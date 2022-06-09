@@ -19,6 +19,7 @@ const AcceptanceRide = ({ date, destination, cost, rerender, setRerender, by}) =
 		console.log(user)
 		const met = await sendMoney.methods.payRide(user, localStorage.getItem('idUser')).send({...params});
 		console.log(met);
+		window.location.reload();
 	}
 
 	return (

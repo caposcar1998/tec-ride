@@ -18,6 +18,7 @@ const Travels = () => {
         const sendMoney = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
         const met = await sendMoney.methods.fetchRides().call()
         console.log(met)
+        window.location.reload();
       }
 
     return(
