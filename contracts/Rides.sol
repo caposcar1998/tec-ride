@@ -37,7 +37,8 @@ contract Rides {
         _receiver.transfer(msg.value);
         address _address = address(msg.sender);
         rides[_address].status = "closed";
-        rides[_address].rider = rider; 
+        rides[_address].rider = rider;
+        rides[_address].timeActive = 0; 
         accounts[0] = msg.sender; 
         emit Selected(_receiver, msg.sender, msg.value);
     }

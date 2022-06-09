@@ -24,7 +24,7 @@ const CreateRide = () => {
             date,
             hour,
             "",
-            origin + end,
+            origin + "-" +  end,
         ).send({from: localStorage.getItem("idUser")})
         console.log(exceuted_contract)
     }

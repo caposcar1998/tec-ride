@@ -33,10 +33,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime, status}) =
                                     <h1>{date}</h1>
                                 </div>
                                 <div className="col-12">
-                                    <h3>From: {from}</h3>
-                                </div>
-                                <div className="col-12">
-                                    <h3>To:{to}</h3>
+                                    <h3>Destination:{to}</h3>
                                 </div>
                             </div>
                         </div>
