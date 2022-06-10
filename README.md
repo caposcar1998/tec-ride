@@ -8,6 +8,8 @@ Application that will give the users of the blockchain secure and private rides 
 2. Latest version of [Ganache](https://trufflesuite.com/ganache/)
 3. Latest version of [MetaMask](https://metamask.io/download/)
 
+Workis with any Operating System 
+
 # Installation
 
 1. Install NPM packages
@@ -18,6 +20,9 @@ Application that will give the users of the blockchain secure and private rides 
 
         npm install -g truffle
         
+3. Install Vite globally
+
+        npm create vite@latest globally
 
 # Usage
 
@@ -78,7 +83,6 @@ function makeBid(string calldata bids , address rideId) public {}
 function preAproveRide(address driver, string calldata rider, uint cost) public {}
 ```
 
-
 ## Connect the user to the blockchain
 
 1. Open up [Metamask](https://metamask.io/download/) and add the plugin
@@ -97,7 +101,7 @@ function preAproveRide(address driver, string calldata rider, uint cost) public 
         
 2. On the console run
 
-```javascript
+```
 let x = await MetaCoin.deployed()
 x
 x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12"})
@@ -108,7 +112,7 @@ x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb1
 
 2. If not run
         
-        truffle migrate
+        truffle migrate --reset
 
 3.  Create config file per contract in src
 
