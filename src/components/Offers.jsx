@@ -1,24 +1,49 @@
 import RideOffered from "./RideOffered"
-import travelsMock from "../mocks/travelsMock.json"
+import { useEffect, useState } from "react";
+import Rides from '../../build/contracts/Rides.json'
+import Web3 from 'web3';
 
 const Offers = () => {
 
+    const [rides, setRides] = useState([])
+    
+    useEffect(() => {
+        fetchRides()
+      }, []);
+
+
+    
+
+
+
+    
+
+    async function fetchRides(){
+        const web3 = new Web3(window.ethereum);
+        const networkId = await web3.eth.net.getId()
+
+
+        const createRide = new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
+        const exceuted_contract = await createRide.methods.fetchRides().call()
+        setRides(exceuted_contract)
+        console.log(exceuted_contract)
+        console.log(rides)
+    }
 
     return(
     <div className="container">
         <ul className="list-group">
             {
-                travelsMock.map((travel, index) => {
+                rides.map((travel, index) => {
                     return <RideOffered
-                    id={travel.id}
                     date= {travel.date +" " +travel.hour}
-                    from= {travel.from}
-                    to= {travel.to}
+                    from= {travel.destination}
+                    to= {travel.destination}
                     by= {travel.driver}
-                    cost={travel.costRide}
+                    cost={travel.cost}
                     bids= {travel.bids}
-                    activeTime = {travel.hoursActive}
-   
+                    activeTime = {travel.timeActive}
+                    status = {travel.status}
                 />
                 })
             }

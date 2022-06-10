@@ -28,9 +28,6 @@ const UserTravel = ({date, from, to, by, costRide, id}) => {
                                     <h1>{date}</h1>
                                 </div>
                                 <div className="col-12">
-                                    <h3>From: {from}</h3>
-                                </div>
-                                <div className="col-12">
                                     <h3>To:{to}</h3>
                                 </div>
                             </div>

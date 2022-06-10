@@ -1,26 +1,28 @@
 import { useState } from "react";
-import travelsMock from "../mocks/travelsMock.json"
 import Countdown from 'react-countdown';
+import AddOffer from "./AddOffer";
 
-const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
+const RideOffered = ({id, date, from, to, by, bids, cost, activeTime, status}) => {
 
 
-    const [rerender, setRerender] = useState(false);
+    
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     function makeOffer(){
   
-        travelsMock.map((travel) => {
-            if (travel.id === id){
-                travel.bids.push({"address":localStorage.getItem('user'), "amount":20})
-            }
-            
-        })
-        alert("Bid placed")
-        setRerender(!rerender);
+
+        handleShow()
+        
 
     }
 
     return(
+        <>
+        <AddOffer by={by} show={show} handleShow={handleShow} handleClose={handleClose} bids={bids}/>
         <li className="list-group-item">
             <div className="container">
                 <div className="row">
@@ -31,10 +33,7 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                     <h1>{date}</h1>
                                 </div>
                                 <div className="col-12">
-                                    <h3>From: {from}</h3>
-                                </div>
-                                <div className="col-12">
-                                    <h3>To:{to}</h3>
+                                    <h3>Destination:{to}</h3>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +49,12 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                                         <div className="col-12 inline-block"></div>
                                         <h6>By:{by}</h6>
                                         <h6>Active time: <Countdown date={Date.now() + (activeTime* 60 * 60 *1000)} /></h6>
-                                        <button className="btn btn-success" onClick={makeOffer}>Make a bid</button>
+                                        <h6>Status: {status}</h6>
+                                        {status == "open" ?
+                                        <button  className="btn btn-success" onClick={makeOffer}>Make a bid</button>
+                                        :
+                                        <button disabled className="btn btn-success" onClick={makeOffer}>Make a bid</button>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -58,27 +62,32 @@ const RideOffered = ({id, date, from, to, by, bids, cost, activeTime}) => {
                     <div className="col-12">
                         <div className="container">
                             <div className="row">
+                            {status == "open" ? 
+                            <>
                                 <div className="d-flex justify-content-center col-12">
                                     <h2>Bids</h2>
                                 </div>
                                 <div className="col-12">
                                     <ul className="list-group">
                                         {
-                                            bids.map((bid,index) =>{
+                                            bids.split("|").map((bid,index) =>{
                                                 return(
-                                                    <li>Address: {bid.address}</li>
+                                                    <li>{bid}</li>
                                                 )
                                             })
                                         }                       
                                     </ul>
 
                                 </div>
+                                </>
+                                : <h1>No more bids</h1>}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </li>
+        </>
     )
 }
 
