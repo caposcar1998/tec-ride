@@ -146,6 +146,3 @@ new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
 createBid.methods.makeBid(newBids, by).send({from: localStorage.getItem("idUser")});
 ```
 
-## Magic links
-
-[link](https://github.com/blakewood84/metamask-transactions/blob/main/src/App.js)
