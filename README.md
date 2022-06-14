@@ -118,29 +118,29 @@ x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb1
 ```
 ## Create transactions
 
-1. Make sure your contract is created in build
+1.Add a new file into contracts
 
-2. If not run
+2. Add this file to your ```migrations.sol```
+
+2. Then run
         
+        truffle compile
         truffle migrate --reset
 
-3.  Create config file per contract in src
+3. This will generate a file in the build folder
 
-4. Copy the address and ABI obtained from build
-
-5. Use example in testing file
-
-6. Methods may change:
+Methods may change:
     1. send makes the transaction
     2. call retrieves data
 
-All ethereum values must be type integer
+All ethereum values must be type integer for this exercise
 
 
 When creating a transaction,the application makes sure that the next methods are applied.
 
 1. A new contract object is created, then a json interface is provided of the respective smart contract and web3 will auto convert all calls into low level ABI calls over RPC for you
 ```javascript
+import Web3 from 'web3';
 new Web3(window.ethereum);
 ```
 2. The applications gets the information about the current network that is being used
