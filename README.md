@@ -32,8 +32,8 @@ Workis with any Operating System
 
 2. Open [http:localhost:3000](http:localhost:3000)
 3. Open Ganache App and start a Workspace  in port 7545
-4. Use as username for rider: 0x22b52AC02134C870AE56d6F9D809E209Cabc710F
-5. Use a username for driver: 0xa5da0510edc01b1c08CE5DBEf659982d4175a6b4
+4. Use as username for rider in your metamask configuration : You will get this from your ganache env
+5. Use a username for driver in your metamask configuration: You will get this from your ganache env
 
 ## Contracts Usage
 
