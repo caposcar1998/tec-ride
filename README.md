@@ -1,6 +1,7 @@
 # TEC RIDE
 
 Application that will give the users of the blockchain secure and private rides using ethereum as currency.
+To use this application you need to have the basic knowledge of node, react, web3 and solidity
 
 # Application requirements
 
@@ -8,11 +9,11 @@ Application that will give the users of the blockchain secure and private rides 
 2. Latest version of [Ganache](https://trufflesuite.com/ganache/)
 3. Latest version of [MetaMask](https://metamask.io/download/)
 
-Workis with any Operating System 
+Works with any Operating System 
 
 # Installation
 
-1. Install NPM packages
+1. Install NPM packages in the root 
 
         npm install 
 
@@ -34,6 +35,16 @@ Workis with any Operating System
 3. Open Ganache App and start a Workspace  in port 7545
 4. Use as username for rider in your metamask configuration : You will get this from your ganache env
 5. Use a username for driver in your metamask configuration: You will get this from your ganache env
+
+### Connect the user to the blockchain
+
+1. Open up [Metamask](https://metamask.io/download/) and add the plugin
+2. Configure a local network with the port used in ganache
+3. Select ETH as currency
+4. Take two accounts fron ganache , one for a **Driver** account and the other for a **User** account.
+5. The local application will ask you to login access metamask
+6. Access the plugin with a Ganache user
+7. Select the port used to start Ganacke
 
 ## Contracts Usage
 
@@ -82,14 +93,6 @@ function makeBid(string calldata bids , address rideId) public {}
 
 function preAproveRide(address driver, string calldata rider, uint cost) public {}
 ```
-
-## Connect the user to the blockchain
-
-1. Open up [Metamask](https://metamask.io/download/) and add the plugin
-2. Create two accounts, one for a **Driver** account and the other for a **User** account.
-3. The local application will ask you to login access metamask
-4. Access the plugin with a Ganache user
-5. Create localhost network
 
 ## Testing truffle
 
