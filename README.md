@@ -1,7 +1,9 @@
 # TEC RIDE
 
 Application that will give the users of the blockchain secure and private rides using ethereum as currency.
-To use this application you need to have the basic knowledge of node, react, web3 and solidity
+To use this application you need to have the basic knowledge of node, react, web3 and solidity.
+
+### NOTE: THE APPLICATION WONT SHOW ANYTHING UNTIL YOU HAVE INSTALLED AND CONFIGURED A LOCAL NETWORK WITH METAMASK, YOU NEED TO BE LOG IN ALSO
 
 # Application requirements
 
