@@ -118,7 +118,7 @@ x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb1
 ```
 ## Create transactions
 
-1.Add a new file into contracts
+1. Add a new file into contracts
 
 2. Add this file to your ```migrations.sol```
 
@@ -129,9 +129,12 @@ x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb1
 
 3. This will generate a file in the build folder
 
-Methods may change:
-    1. send makes the transaction
-    2. call retrieves data
+### Important values to consider
+
+- payable : Sends money
+- view: To display information
+- public: to been seen
+- struct : Create structures
 
 All ethereum values must be type integer for this exercise
 
@@ -155,4 +158,9 @@ new web3.eth.Contract(Rides.abi, Rides.networks[networkId].address);
 ```javascript
 createBid.methods.makeBid(newBids, by).send({from: localStorage.getItem("idUser")});
 ```
+
+### Important values to consider
+
+- call : Retrieves information, no parameters needed
+- send : Creates a transaction on the blockchain, needs from parameter (gas,value, user,  optional)
 
