@@ -93,15 +93,20 @@ function preAproveRide(address driver, string calldata rider, uint cost) public 
 
 ## Testing truffle
 
+Truffle will create the testing of your solidity files for your, truffle will run automatic unit test in all your methods
+
 0. Start Ganache in port 7545
 
 1. Run 
 
-        truffle console
+        truffle test
         
-2. On the console run
+If you want to test manually you can start the CLI on any console
+        
+0. On the console run
 
 ```
+truffle console
 let x = await MetaCoin.deployed()
 x
 x.sendCoin("0x3755a97396F60aE56E1b57Ee119745a59fD44923", 10, {from: "0xcC9ef1Fb124C0105Ecd91Ec87F3a8747b1d71F12"})
